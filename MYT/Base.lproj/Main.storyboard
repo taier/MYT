@@ -30,11 +30,12 @@
                                     <constraint firstAttribute="height" constant="30" id="6Ku-on-xK3"/>
                                     <constraint firstAttribute="width" constant="88" id="B5d-wr-CRZ"/>
                                 </constraints>
-                                <state key="normal" title="Show Me">
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Data">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="reverseGeocode:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AGd-zI-i3F"/>
+                                    <action selector="sendMail:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="33a-vS-nkc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Le-0N-d4E">

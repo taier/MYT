@@ -13,6 +13,9 @@
 		B71F53A71B1E4B10006223A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B71F53A61B1E4B10006223A9 /* Images.xcassets */; };
 		B71F53AA1B1E4B10006223A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B71F53A81B1E4B10006223A9 /* LaunchScreen.xib */; };
 		B71F53B61B1E4B10006223A9 /* MYTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53B51B1E4B10006223A9 /* MYTTests.swift */; };
+		B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE3711B1E549100AAE842 /* LocationManager.swift */; };
+		B7ADE3751B1E558000AAE842 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7ADE3741B1E558000AAE842 /* MapKit.framework */; };
+		B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		B71F53AF1B1E4B10006223A9 /* MYTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F53B41B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B71F53B51B1E4B10006223A9 /* MYTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYTTests.swift; sourceTree = "<group>"; };
+		B7ADE3711B1E549100AAE842 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Libs/LocationManager.swift; sourceTree = "<group>"; };
+		B7ADE3741B1E558000AAE842 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTracker.swift; path = Libs/LocationTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7ADE3751B1E558000AAE842 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +84,7 @@
 		B71F539C1B1E4B10006223A9 /* MYT */ = {
 			isa = PBXGroup;
 			children = (
+				B7ADE3731B1E549700AAE842 /* Libs */,
 				B71F539F1B1E4B10006223A9 /* AppDelegate.swift */,
 				B71F53A11B1E4B10006223A9 /* ViewController.swift */,
 				B71F53A31B1E4B10006223A9 /* Main.storyboard */,
@@ -90,6 +98,7 @@
 		B71F539D1B1E4B10006223A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B7ADE3741B1E558000AAE842 /* MapKit.framework */,
 				B71F539E1B1E4B10006223A9 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -110,6 +119,15 @@
 				B71F53B41B1E4B10006223A9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7ADE3731B1E549700AAE842 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */,
+				B7ADE3711B1E549100AAE842 /* LocationManager.swift */,
+			);
+			name = Libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +231,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */,
+				B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */,
 				B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */,
+				B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +429,7 @@
 				B71F53BB1B1E4B10006223A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B71F53BC1B1E4B10006223A9 /* Build configuration list for PBXNativeTarget "MYTTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +438,7 @@
 				B71F53BE1B1E4B10006223A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

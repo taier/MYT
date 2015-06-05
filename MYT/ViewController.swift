@@ -8,17 +8,14 @@
 
 import UIKit
 import MapKit
+import MessageUI
 
-
-class ViewController: UIViewController, LocationManagerDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet var mapView:MKMapView? = MKMapView()
-    @IBOutlet var textfield:UITextField? = UITextField()
     @IBOutlet weak var locationLabel: UILabel!
     
-    var activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0, 50, 50)) as UIActivityIndicatorView
-    
-    var locationManager = LocationManager.sharedInstance
+    let locationTracker = LocationTracker(threshold:1.0)
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -29,147 +26,53 @@ class ViewController: UIViewController, LocationManagerDelegate, UITextFieldDele
         
         super.viewDidLoad()
         
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        activityIndicator.color = UIColor.blackColor()
-        //activityIndicator.backgroundColor = UIColor.brownColor()
-        
-        locationManager.autoUpdate = true
-    }
-    
-    @IBAction func reverseGeocode(sender:UIButton) {
-        
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-        
-        if sender.tag == 1 {
-            
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        } else{
-            
-            locationManager.startUpdatingLocationWithCompletionHandler { (latitude, longitude, status, verboseMessage, error) -> () in
-                
-                if error != nil {
-                    println(error)
-                } else {
-                    self.locationLabel?.text = "Latitude - \(latitude) Longitude - \(longitude)"
-                    self.plotOnMapWithCoordinates(latitude: latitude, longitude: longitude)
+        locationTracker.addLocationChangeObserver { (result) -> () in
+                switch result {
+                case .Success(let location):
+                    self.updateUserLocationVisually(location)
+                case .Failure(let reason):
+                    println("Some shit happened")
                 }
             }
         }
-    }
     
-    @IBAction func geocode(sender:UIButton) {
+    func updateUserLocationVisually(newLocation: LocationTracker.Location) -> Void {
         
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-        var address = textfield?.text!
-        textfield?.resignFirstResponder()
+        let coordinate = newLocation.physical.coordinate
+        let locationString = "\(coordinate.latitude), \(coordinate.longitude)"
         
-        if sender.tag == 0 {
-            plotOnMapUsingGoogleWithAddress(address!)
-        } else {
-            plotOnMapWithAddress(address!)
-        }
-    }
-    
-    func locationManagerStatus(status:NSString) {
+        // Show on label
+        self.locationLabel.text = "Location: \(locationString)"
         
-        println(status)
-    }
-    
-    func locationManagerReceivedError(error:NSString) {
+        // Save on Drive
+        saveCoodinatesToDrive(locationString)
         
-        println(error)
-        activityIndicator.stopAnimating()
-    }
-    
-    func locationFound(latitude:Double, longitude:Double) {
+        // Create iOS Location from raw data
+        var ctrpoint:CLLocationCoordinate2D = CLLocationCoordinate2D()
+        ctrpoint.latitude = coordinate.latitude
+        ctrpoint.longitude = coordinate.longitude
         
-        self.plotOnMapWithCoordinates(latitude: latitude, longitude: longitude)
-    }
-    
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // Set MapView zoom
+        var latDelta:CLLocationDegrees = 0.1
+        var longDelta:CLLocationDegrees = 0.1
+        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        textfield?.resignFirstResponder()
+        var latitudinalMeters = 100.0
+        var longitudinalMeters = 100.0
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
         
-        return true
-    }
-    
-    func plotOnMapUsingGoogleWithAddress(address:NSString) {
+        self.mapView?.setRegion(theRegion, animated: true)
         
-        locationManager.geocodeUsingGoogleAddressString(address: address) { (geocodeInfo,placemark, error) -> Void in
-            
-            self.performActionWithPlacemark(placemark, error: error)
-        }
-    }
-    
-    func plotOnMapWithAddress(address:NSString) {
+        // Create Pin
+        var addAnnotation:MKPointAnnotation = MKPointAnnotation()
+        addAnnotation.coordinate = ctrpoint
         
-        locationManager.geocodeAddressString(address: address) { (geocodeInfo,placemark, error) -> Void in
-            
-            self.performActionWithPlacemark(placemark, error: error)        }
-    }
-    
-    func plotOnMapWithCoordinates(#latitude: Double, longitude: Double) {
+        self.mapView?.addAnnotation(addAnnotation);
         
-        locationManager.reverseGeocodeLocationUsingGoogleWithLatLon(latitude: latitude, longitude: longitude) { (reverseGeocodeInfo, placemark, error) -> Void in
-            
-            self.performActionWithPlacemark(placemark, error: error)
-        }
-    }
-    
-    
-    func performActionWithPlacemark(placemark:CLPlacemark?,error:String?) {
-        
-        if error != nil {
-            
-            println(error)
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                
-                if self.activityIndicator.superview != nil {
-                    
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.removeFromSuperview()
-                }
-            })
-        } else {
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.plotPlacemarkOnMap(placemark)
-            })
-        }
-    }
-    
-    func removeAllPlacemarkFromMap(#shouldRemoveUserLocation:Bool) {
-        
-        if let mapView = self.mapView {
-            for annotation in mapView.annotations{
-                if shouldRemoveUserLocation {
-                    if annotation as? MKUserLocation !=  mapView.userLocation {
-                        mapView.removeAnnotation(annotation as! MKAnnotation)
-                    }
-                }
-            }
-        }
     }
     
     func plotPlacemarkOnMap(placemark:CLPlacemark?) {
-        
-        removeAllPlacemarkFromMap(shouldRemoveUserLocation:true)
-        
-//        if self.locationManager.isRunning {
-//            self.locationManager.stopUpdatingLocation()
-//        }
-        
-        if self.activityIndicator.superview != nil {
-            
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.removeFromSuperview()
-        }
+
         
         var latDelta:CLLocationDegrees = 0.1
         var longDelta:CLLocationDegrees = 0.1
@@ -183,4 +86,55 @@ class ViewController: UIViewController, LocationManagerDelegate, UITextFieldDele
         
         self.mapView?.addAnnotation(MKPlacemark(placemark: placemark))
     }
+    
+    func saveCoodinatesToDrive(coordinatesString : String) -> Void {
+        
+        let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
+        let fileurl =  dir.URLByAppendingPathComponent("log.txt")
+    
+        let data = coordinatesString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) {
+            var err:NSError?
+            if let fileHandle = NSFileHandle(forWritingToURL: fileurl, error: &err) {
+                fileHandle.seekToEndOfFile()
+                fileHandle.writeData(data)
+                fileHandle.closeFile()
+            }
+            else {
+                println("Can't open fileHandle \(err)")
+            }
+        }
+        else {
+            var err:NSError?
+            if !data.writeToURL(fileurl, options: .DataWritingAtomic, error: &err) {
+                println("Can't write \(err)")
+            }
+        }
+    }
+    
+    @IBAction func sendMail(sender: AnyObject) {
+        
+        var file = "log.txt";
+        
+        if let dirs : [String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
+            let dir = dirs[0] //documents directory
+            let path = dir.stringByAppendingPathComponent(file);
+            
+            //reading
+            let textToSend = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
+            
+            var picker = MFMailComposeViewController()
+            picker.mailComposeDelegate = self
+            picker.setSubject("My waypoints")
+            picker.setMessageBody(textToSend, isHTML: true)
+            
+            presentViewController(picker, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }
