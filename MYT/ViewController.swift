@@ -16,6 +16,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     
     let locationTracker = LocationTracker(threshold:1.0)
+    var rootGPX = GPXRoot(creator: "Sample GPX")
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,11 +42,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         let coordinate = newLocation.physical.coordinate
         let locationString = "\(coordinate.latitude), \(coordinate.longitude)"
         
+        // Save GPX
+        createGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
+        
         // Show on label
         self.locationLabel.text = "Location: \(locationString)"
-        
-        // Save on Drive
-        saveCoodinatesToDrive(locationString)
         
         // Create iOS Location from raw data
         var ctrpoint:CLLocationCoordinate2D = CLLocationCoordinate2D()
@@ -73,7 +74,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     func plotPlacemarkOnMap(placemark:CLPlacemark?) {
 
-        
         var latDelta:CLLocationDegrees = 0.1
         var longDelta:CLLocationDegrees = 0.1
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
@@ -87,12 +87,13 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         self.mapView?.addAnnotation(MKPlacemark(placemark: placemark))
     }
     
-    func saveCoodinatesToDrive(coordinatesString : String) -> Void {
+    @IBAction func sendMail(sender: AnyObject) {
         
         let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
-        let fileurl =  dir.URLByAppendingPathComponent("log.txt")
-    
-        let data = coordinatesString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        let fileurl =  dir.URLByAppendingPathComponent("awesome.gpx")
+        
+        let data = rootGPX.gpx().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        
         
         if NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) {
             var err:NSError?
@@ -111,30 +112,27 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
                 println("Can't write \(err)")
             }
         }
-    }
-    
-    @IBAction func sendMail(sender: AnyObject) {
+
+        var picker = MFMailComposeViewController()
+        picker.mailComposeDelegate = self
+        picker.setSubject("My Waypoints")
+        picker.setMessageBody("Open in <a href=http://maplorer.com/view_gpx.html>Me</a>", isHTML: true)
+        picker.addAttachmentData(data, mimeType: "GPX", fileName: "MyAwesomeMovements.gpx")
         
-        var file = "log.txt";
-        
-        if let dirs : [String] = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String] {
-            let dir = dirs[0] //documents directory
-            let path = dir.stringByAppendingPathComponent(file);
-            
-            //reading
-            let textToSend = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)
-            
-            var picker = MFMailComposeViewController()
-            picker.mailComposeDelegate = self
-            picker.setSubject("My waypoints")
-            picker.setMessageBody(textToSend, isHTML: true)
-            
-            presentViewController(picker, animated: true, completion: nil)
-        }
+        presentViewController(picker, animated: true, completion: nil)
     }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func createGPXFrom(latitude: CGFloat, longitude: CGFloat) -> Void {
+        
+        var track = rootGPX.newTrack()
+        track.newTrackpointWithLatitude(latitude, longitude: longitude)
+        
+        rootGPX.addTrack(track);
+        println("Logging location")
     }
     
 }

@@ -13,6 +13,28 @@
 		B71F53A71B1E4B10006223A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B71F53A61B1E4B10006223A9 /* Images.xcassets */; };
 		B71F53AA1B1E4B10006223A9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B71F53A81B1E4B10006223A9 /* LaunchScreen.xib */; };
 		B71F53B61B1E4B10006223A9 /* MYTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53B51B1E4B10006223A9 /* MYTTests.swift */; };
+		B79202741B28133C00F2D7BA /* GPXAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202471B28133C00F2D7BA /* GPXAuthor.m */; };
+		B79202751B28133C00F2D7BA /* GPXBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202491B28133C00F2D7BA /* GPXBounds.m */; };
+		B79202761B28133C00F2D7BA /* GPXConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B792024B1B28133C00F2D7BA /* GPXConst.m */; };
+		B79202771B28133C00F2D7BA /* GPXCopyright.m in Sources */ = {isa = PBXBuildFile; fileRef = B792024D1B28133C00F2D7BA /* GPXCopyright.m */; };
+		B79202781B28133C00F2D7BA /* GPXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B792024F1B28133C00F2D7BA /* GPXElement.m */; };
+		B79202791B28133C00F2D7BA /* GPXEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202521B28133C00F2D7BA /* GPXEmail.m */; };
+		B792027A1B28133C00F2D7BA /* GPXExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202541B28133C00F2D7BA /* GPXExtensions.m */; };
+		B792027B1B28133C00F2D7BA /* GPXLink.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202561B28133C00F2D7BA /* GPXLink.m */; };
+		B792027C1B28133C00F2D7BA /* GPXMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202581B28133C00F2D7BA /* GPXMetadata.m */; };
+		B792027D1B28133C00F2D7BA /* GPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B792025A1B28133C00F2D7BA /* GPXParser.m */; };
+		B792027E1B28133C00F2D7BA /* GPXPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = B792025C1B28133C00F2D7BA /* GPXPerson.m */; };
+		B792027F1B28133C00F2D7BA /* GPXPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B792025E1B28133C00F2D7BA /* GPXPoint.m */; };
+		B79202801B28133C00F2D7BA /* GPXPointSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202601B28133C00F2D7BA /* GPXPointSegment.m */; };
+		B79202811B28133C00F2D7BA /* GPXRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202621B28133C00F2D7BA /* GPXRoot.m */; };
+		B79202821B28133C00F2D7BA /* GPXRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202641B28133C00F2D7BA /* GPXRoute.m */; };
+		B79202831B28133C00F2D7BA /* GPXRoutePoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202661B28133C00F2D7BA /* GPXRoutePoint.m */; };
+		B79202841B28133C00F2D7BA /* GPXTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202681B28133C00F2D7BA /* GPXTrack.m */; };
+		B79202851B28133C00F2D7BA /* GPXTrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B792026A1B28133C00F2D7BA /* GPXTrackPoint.m */; };
+		B79202861B28133C00F2D7BA /* GPXTrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = B792026C1B28133C00F2D7BA /* GPXTrackSegment.m */; };
+		B79202871B28133C00F2D7BA /* GPXType.m in Sources */ = {isa = PBXBuildFile; fileRef = B792026E1B28133C00F2D7BA /* GPXType.m */; };
+		B79202881B28133C00F2D7BA /* GPXWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202701B28133C00F2D7BA /* GPXWaypoint.m */; };
+		B79202891B28133C00F2D7BA /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202731B28133C00F2D7BA /* TBXML.m */; };
 		B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE3711B1E549100AAE842 /* LocationManager.swift */; };
 		B7ADE3751B1E558000AAE842 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7ADE3741B1E558000AAE842 /* MapKit.framework */; };
 		B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */; };
@@ -39,6 +61,53 @@
 		B71F53AF1B1E4B10006223A9 /* MYTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MYTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F53B41B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B71F53B51B1E4B10006223A9 /* MYTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYTTests.swift; sourceTree = "<group>"; };
+		B79202451B28133C00F2D7BA /* GPX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPX.h; path = Libs/GPX/GPX.h; sourceTree = "<group>"; };
+		B79202461B28133C00F2D7BA /* GPXAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXAuthor.h; path = Libs/GPX/GPXAuthor.h; sourceTree = "<group>"; };
+		B79202471B28133C00F2D7BA /* GPXAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXAuthor.m; path = Libs/GPX/GPXAuthor.m; sourceTree = "<group>"; };
+		B79202481B28133C00F2D7BA /* GPXBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXBounds.h; path = Libs/GPX/GPXBounds.h; sourceTree = "<group>"; };
+		B79202491B28133C00F2D7BA /* GPXBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXBounds.m; path = Libs/GPX/GPXBounds.m; sourceTree = "<group>"; };
+		B792024A1B28133C00F2D7BA /* GPXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXConst.h; path = Libs/GPX/GPXConst.h; sourceTree = "<group>"; };
+		B792024B1B28133C00F2D7BA /* GPXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXConst.m; path = Libs/GPX/GPXConst.m; sourceTree = "<group>"; };
+		B792024C1B28133C00F2D7BA /* GPXCopyright.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXCopyright.h; path = Libs/GPX/GPXCopyright.h; sourceTree = "<group>"; };
+		B792024D1B28133C00F2D7BA /* GPXCopyright.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXCopyright.m; path = Libs/GPX/GPXCopyright.m; sourceTree = "<group>"; };
+		B792024E1B28133C00F2D7BA /* GPXElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXElement.h; path = Libs/GPX/GPXElement.h; sourceTree = "<group>"; };
+		B792024F1B28133C00F2D7BA /* GPXElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXElement.m; path = Libs/GPX/GPXElement.m; sourceTree = "<group>"; };
+		B79202501B28133C00F2D7BA /* GPXElementSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXElementSubclass.h; path = Libs/GPX/GPXElementSubclass.h; sourceTree = "<group>"; };
+		B79202511B28133C00F2D7BA /* GPXEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXEmail.h; path = Libs/GPX/GPXEmail.h; sourceTree = "<group>"; };
+		B79202521B28133C00F2D7BA /* GPXEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXEmail.m; path = Libs/GPX/GPXEmail.m; sourceTree = "<group>"; };
+		B79202531B28133C00F2D7BA /* GPXExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXExtensions.h; path = Libs/GPX/GPXExtensions.h; sourceTree = "<group>"; };
+		B79202541B28133C00F2D7BA /* GPXExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXExtensions.m; path = Libs/GPX/GPXExtensions.m; sourceTree = "<group>"; };
+		B79202551B28133C00F2D7BA /* GPXLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXLink.h; path = Libs/GPX/GPXLink.h; sourceTree = "<group>"; };
+		B79202561B28133C00F2D7BA /* GPXLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXLink.m; path = Libs/GPX/GPXLink.m; sourceTree = "<group>"; };
+		B79202571B28133C00F2D7BA /* GPXMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXMetadata.h; path = Libs/GPX/GPXMetadata.h; sourceTree = "<group>"; };
+		B79202581B28133C00F2D7BA /* GPXMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXMetadata.m; path = Libs/GPX/GPXMetadata.m; sourceTree = "<group>"; };
+		B79202591B28133C00F2D7BA /* GPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXParser.h; path = Libs/GPX/GPXParser.h; sourceTree = "<group>"; };
+		B792025A1B28133C00F2D7BA /* GPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXParser.m; path = Libs/GPX/GPXParser.m; sourceTree = "<group>"; };
+		B792025B1B28133C00F2D7BA /* GPXPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXPerson.h; path = Libs/GPX/GPXPerson.h; sourceTree = "<group>"; };
+		B792025C1B28133C00F2D7BA /* GPXPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXPerson.m; path = Libs/GPX/GPXPerson.m; sourceTree = "<group>"; };
+		B792025D1B28133C00F2D7BA /* GPXPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXPoint.h; path = Libs/GPX/GPXPoint.h; sourceTree = "<group>"; };
+		B792025E1B28133C00F2D7BA /* GPXPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXPoint.m; path = Libs/GPX/GPXPoint.m; sourceTree = "<group>"; };
+		B792025F1B28133C00F2D7BA /* GPXPointSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXPointSegment.h; path = Libs/GPX/GPXPointSegment.h; sourceTree = "<group>"; };
+		B79202601B28133C00F2D7BA /* GPXPointSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXPointSegment.m; path = Libs/GPX/GPXPointSegment.m; sourceTree = "<group>"; };
+		B79202611B28133C00F2D7BA /* GPXRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXRoot.h; path = Libs/GPX/GPXRoot.h; sourceTree = "<group>"; };
+		B79202621B28133C00F2D7BA /* GPXRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXRoot.m; path = Libs/GPX/GPXRoot.m; sourceTree = "<group>"; };
+		B79202631B28133C00F2D7BA /* GPXRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXRoute.h; path = Libs/GPX/GPXRoute.h; sourceTree = "<group>"; };
+		B79202641B28133C00F2D7BA /* GPXRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXRoute.m; path = Libs/GPX/GPXRoute.m; sourceTree = "<group>"; };
+		B79202651B28133C00F2D7BA /* GPXRoutePoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXRoutePoint.h; path = Libs/GPX/GPXRoutePoint.h; sourceTree = "<group>"; };
+		B79202661B28133C00F2D7BA /* GPXRoutePoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXRoutePoint.m; path = Libs/GPX/GPXRoutePoint.m; sourceTree = "<group>"; };
+		B79202671B28133C00F2D7BA /* GPXTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXTrack.h; path = Libs/GPX/GPXTrack.h; sourceTree = "<group>"; };
+		B79202681B28133C00F2D7BA /* GPXTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXTrack.m; path = Libs/GPX/GPXTrack.m; sourceTree = "<group>"; };
+		B79202691B28133C00F2D7BA /* GPXTrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXTrackPoint.h; path = Libs/GPX/GPXTrackPoint.h; sourceTree = "<group>"; };
+		B792026A1B28133C00F2D7BA /* GPXTrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXTrackPoint.m; path = Libs/GPX/GPXTrackPoint.m; sourceTree = "<group>"; };
+		B792026B1B28133C00F2D7BA /* GPXTrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXTrackSegment.h; path = Libs/GPX/GPXTrackSegment.h; sourceTree = "<group>"; };
+		B792026C1B28133C00F2D7BA /* GPXTrackSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXTrackSegment.m; path = Libs/GPX/GPXTrackSegment.m; sourceTree = "<group>"; };
+		B792026D1B28133C00F2D7BA /* GPXType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXType.h; path = Libs/GPX/GPXType.h; sourceTree = "<group>"; };
+		B792026E1B28133C00F2D7BA /* GPXType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXType.m; path = Libs/GPX/GPXType.m; sourceTree = "<group>"; };
+		B792026F1B28133C00F2D7BA /* GPXWaypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPXWaypoint.h; path = Libs/GPX/GPXWaypoint.h; sourceTree = "<group>"; };
+		B79202701B28133C00F2D7BA /* GPXWaypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPXWaypoint.m; path = Libs/GPX/GPXWaypoint.m; sourceTree = "<group>"; };
+		B79202711B28133C00F2D7BA /* MYT-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MYT-Bridging-Header.h"; path = "Libs/GPX/MYT-Bridging-Header.h"; sourceTree = "<group>"; };
+		B79202721B28133C00F2D7BA /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = Libs/GPX/TBXML.h; sourceTree = "<group>"; };
+		B79202731B28133C00F2D7BA /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = Libs/GPX/TBXML.m; sourceTree = "<group>"; };
 		B7ADE3711B1E549100AAE842 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Libs/LocationManager.swift; sourceTree = "<group>"; };
 		B7ADE3741B1E558000AAE842 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTracker.swift; path = Libs/LocationTracker.swift; sourceTree = "<group>"; };
@@ -124,6 +193,53 @@
 		B7ADE3731B1E549700AAE842 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				B79202451B28133C00F2D7BA /* GPX.h */,
+				B79202461B28133C00F2D7BA /* GPXAuthor.h */,
+				B79202471B28133C00F2D7BA /* GPXAuthor.m */,
+				B79202481B28133C00F2D7BA /* GPXBounds.h */,
+				B79202491B28133C00F2D7BA /* GPXBounds.m */,
+				B792024A1B28133C00F2D7BA /* GPXConst.h */,
+				B792024B1B28133C00F2D7BA /* GPXConst.m */,
+				B792024C1B28133C00F2D7BA /* GPXCopyright.h */,
+				B792024D1B28133C00F2D7BA /* GPXCopyright.m */,
+				B792024E1B28133C00F2D7BA /* GPXElement.h */,
+				B792024F1B28133C00F2D7BA /* GPXElement.m */,
+				B79202501B28133C00F2D7BA /* GPXElementSubclass.h */,
+				B79202511B28133C00F2D7BA /* GPXEmail.h */,
+				B79202521B28133C00F2D7BA /* GPXEmail.m */,
+				B79202531B28133C00F2D7BA /* GPXExtensions.h */,
+				B79202541B28133C00F2D7BA /* GPXExtensions.m */,
+				B79202551B28133C00F2D7BA /* GPXLink.h */,
+				B79202561B28133C00F2D7BA /* GPXLink.m */,
+				B79202571B28133C00F2D7BA /* GPXMetadata.h */,
+				B79202581B28133C00F2D7BA /* GPXMetadata.m */,
+				B79202591B28133C00F2D7BA /* GPXParser.h */,
+				B792025A1B28133C00F2D7BA /* GPXParser.m */,
+				B792025B1B28133C00F2D7BA /* GPXPerson.h */,
+				B792025C1B28133C00F2D7BA /* GPXPerson.m */,
+				B792025D1B28133C00F2D7BA /* GPXPoint.h */,
+				B792025E1B28133C00F2D7BA /* GPXPoint.m */,
+				B792025F1B28133C00F2D7BA /* GPXPointSegment.h */,
+				B79202601B28133C00F2D7BA /* GPXPointSegment.m */,
+				B79202611B28133C00F2D7BA /* GPXRoot.h */,
+				B79202621B28133C00F2D7BA /* GPXRoot.m */,
+				B79202631B28133C00F2D7BA /* GPXRoute.h */,
+				B79202641B28133C00F2D7BA /* GPXRoute.m */,
+				B79202651B28133C00F2D7BA /* GPXRoutePoint.h */,
+				B79202661B28133C00F2D7BA /* GPXRoutePoint.m */,
+				B79202671B28133C00F2D7BA /* GPXTrack.h */,
+				B79202681B28133C00F2D7BA /* GPXTrack.m */,
+				B79202691B28133C00F2D7BA /* GPXTrackPoint.h */,
+				B792026A1B28133C00F2D7BA /* GPXTrackPoint.m */,
+				B792026B1B28133C00F2D7BA /* GPXTrackSegment.h */,
+				B792026C1B28133C00F2D7BA /* GPXTrackSegment.m */,
+				B792026D1B28133C00F2D7BA /* GPXType.h */,
+				B792026E1B28133C00F2D7BA /* GPXType.m */,
+				B792026F1B28133C00F2D7BA /* GPXWaypoint.h */,
+				B79202701B28133C00F2D7BA /* GPXWaypoint.m */,
+				B79202711B28133C00F2D7BA /* MYT-Bridging-Header.h */,
+				B79202721B28133C00F2D7BA /* TBXML.h */,
+				B79202731B28133C00F2D7BA /* TBXML.m */,
 				B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */,
 				B7ADE3711B1E549100AAE842 /* LocationManager.swift */,
 			);
@@ -179,6 +295,11 @@
 				TargetAttributes = {
 					B71F53991B1E4B10006223A9 = {
 						CreatedOnToolsVersion = 6.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B71F53AE1B1E4B10006223A9 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -230,10 +351,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B792027D1B28133C00F2D7BA /* GPXParser.m in Sources */,
+				B79202751B28133C00F2D7BA /* GPXBounds.m in Sources */,
+				B79202781B28133C00F2D7BA /* GPXElement.m in Sources */,
+				B79202891B28133C00F2D7BA /* TBXML.m in Sources */,
+				B79202821B28133C00F2D7BA /* GPXRoute.m in Sources */,
+				B79202771B28133C00F2D7BA /* GPXCopyright.m in Sources */,
+				B79202871B28133C00F2D7BA /* GPXType.m in Sources */,
+				B79202881B28133C00F2D7BA /* GPXWaypoint.m in Sources */,
+				B79202841B28133C00F2D7BA /* GPXTrack.m in Sources */,
 				B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */,
 				B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */,
+				B792027C1B28133C00F2D7BA /* GPXMetadata.m in Sources */,
+				B792027B1B28133C00F2D7BA /* GPXLink.m in Sources */,
 				B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */,
+				B792027A1B28133C00F2D7BA /* GPXExtensions.m in Sources */,
+				B79202851B28133C00F2D7BA /* GPXTrackPoint.m in Sources */,
+				B79202861B28133C00F2D7BA /* GPXTrackSegment.m in Sources */,
+				B792027E1B28133C00F2D7BA /* GPXPerson.m in Sources */,
+				B79202791B28133C00F2D7BA /* GPXEmail.m in Sources */,
 				B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */,
+				B79202831B28133C00F2D7BA /* GPXRoutePoint.m in Sources */,
+				B79202741B28133C00F2D7BA /* GPXAuthor.m in Sources */,
+				B79202801B28133C00F2D7BA /* GPXPointSegment.m in Sources */,
+				B792027F1B28133C00F2D7BA /* GPXPoint.m in Sources */,
+				B79202761B28133C00F2D7BA /* GPXConst.m in Sources */,
+				B79202811B28133C00F2D7BA /* GPXRoot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,20 +502,48 @@
 		B71F53BA1B1E4B10006223A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = MYT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-objc",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		B71F53BB1B1E4B10006223A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = MYT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-objc",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
