@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -189,13 +189,13 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6hs-JH-f4R">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xq5-5O-qv8">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -266,6 +266,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="94L-ge-9LK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <segue destination="qhn-FY-q70" kind="presentation" identifier="MYT_Segue_HistoryMapViewController" id="zQA-bc-EeH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1x-Jo-0W1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,6 +292,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcg-vA-hDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="797" y="428"/>
+        </scene>
+        <!--History Map View Controller-->
+        <scene sceneID="v72-Fw-li5">
+            <objects>
+                <viewController id="qhn-FY-q70" customClass="HistoryMapViewController" customModule="MYT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0TU-lA-LTG"/>
+                        <viewControllerLayoutGuide type="bottom" id="pha-mC-vtZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bap-ah-yQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76X-El-m3S" customClass="GPXMapView" customModule="MYT" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Bco-jJ-7xl"/>
+                                    <constraint firstAttribute="height" constant="480" id="mle-J5-WCU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pha-mC-vtZ" firstAttribute="top" secondItem="76X-El-m3S" secondAttribute="bottom" id="Gsa-iu-3lw"/>
+                            <constraint firstItem="76X-El-m3S" firstAttribute="top" secondItem="bap-ah-yQQ" secondAttribute="top" id="IeZ-CG-N5F"/>
+                            <constraint firstItem="76X-El-m3S" firstAttribute="leading" secondItem="bap-ah-yQQ" secondAttribute="leading" id="jXj-Y8-ahZ"/>
+                            <constraint firstAttribute="trailing" secondItem="76X-El-m3S" secondAttribute="trailing" id="q4M-BU-oIM"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="76X-El-m3S" id="qpK-8Z-mdj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjc-4b-wst" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1297" y="428"/>
         </scene>
     </scenes>
     <resources>

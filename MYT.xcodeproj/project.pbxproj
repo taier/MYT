@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		976DB9F71B38438D00811937 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F51B38438D00811937 /* GPXExtentCoordinates.swift */; };
+		976DB9F81B38438D00811937 /* GPXMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F61B38438D00811937 /* GPXMapView.swift */; };
+		976DBA001B3843BC00811937 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F91B3843BC00811937 /* GPXFileManager.swift */; };
+		976DBA011B3843BC00811937 /* GPXFilesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FA1B3843BC00811937 /* GPXFilesTableViewController.swift */; };
+		976DBA021B3843BC00811937 /* GPXFilesTableViewControlllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FB1B3843BC00811937 /* GPXFilesTableViewControlllerDelegate.swift */; };
+		976DBA031B3843BC00811937 /* GPXTileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FC1B3843BC00811937 /* GPXTileServer.swift */; };
+		976DBA041B3843BC00811937 /* GPXTrackPoint+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FD1B3843BC00811937 /* GPXTrackPoint+MapKit.swift */; };
+		976DBA051B3843BC00811937 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */; };
+		976DBA061B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */; };
+		976DBA081B3844A700811937 /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DBA071B3844A700811937 /* HistoryMapViewController.swift */; };
 		97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */; };
 		B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F539F1B1E4B10006223A9 /* AppDelegate.swift */; };
 		B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53A11B1E4B10006223A9 /* ViewController.swift */; };
@@ -52,6 +62,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		976DB9F51B38438D00811937 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXExtentCoordinates.swift; path = "Libs/GPX View/GPXExtentCoordinates.swift"; sourceTree = "<group>"; };
+		976DB9F61B38438D00811937 /* GPXMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXMapView.swift; path = "Libs/GPX View/GPXMapView.swift"; sourceTree = "<group>"; };
+		976DB9F91B3843BC00811937 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXFileManager.swift; path = "Libs/GPX View/GPXFileManager.swift"; sourceTree = "<group>"; };
+		976DB9FA1B3843BC00811937 /* GPXFilesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXFilesTableViewController.swift; path = "Libs/GPX View/GPXFilesTableViewController.swift"; sourceTree = "<group>"; };
+		976DB9FB1B3843BC00811937 /* GPXFilesTableViewControlllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXFilesTableViewControlllerDelegate.swift; path = "Libs/GPX View/GPXFilesTableViewControlllerDelegate.swift"; sourceTree = "<group>"; };
+		976DB9FC1B3843BC00811937 /* GPXTileServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXTileServer.swift; path = "Libs/GPX View/GPXTileServer.swift"; sourceTree = "<group>"; };
+		976DB9FD1B3843BC00811937 /* GPXTrackPoint+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXTrackPoint+MapKit.swift"; path = "Libs/GPX View/GPXTrackPoint+MapKit.swift"; sourceTree = "<group>"; };
+		976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXTrackSegment+MapKit.swift"; path = "Libs/GPX View/GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
+		976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXWaypoint+MKAnnotation.swift"; path = "Libs/GPX View/GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
+		976DBA071B3844A700811937 /* HistoryMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
 		97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShowController.swift; sourceTree = "<group>"; };
 		B71F539A1B1E4B10006223A9 /* MYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F539E1B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +159,7 @@
 			children = (
 				B71F53A11B1E4B10006223A9 /* ViewController.swift */,
 				97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */,
+				976DBA071B3844A700811937 /* HistoryMapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -204,6 +225,15 @@
 		B7ADE3731B1E549700AAE842 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				976DB9F91B3843BC00811937 /* GPXFileManager.swift */,
+				976DB9FA1B3843BC00811937 /* GPXFilesTableViewController.swift */,
+				976DB9FB1B3843BC00811937 /* GPXFilesTableViewControlllerDelegate.swift */,
+				976DB9FC1B3843BC00811937 /* GPXTileServer.swift */,
+				976DB9FD1B3843BC00811937 /* GPXTrackPoint+MapKit.swift */,
+				976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */,
+				976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */,
+				976DB9F51B38438D00811937 /* GPXExtentCoordinates.swift */,
+				976DB9F61B38438D00811937 /* GPXMapView.swift */,
 				B79202451B28133C00F2D7BA /* GPX.h */,
 				B79202461B28133C00F2D7BA /* GPXAuthor.h */,
 				B79202471B28133C00F2D7BA /* GPXAuthor.m */,
@@ -366,9 +396,14 @@
 				B79202751B28133C00F2D7BA /* GPXBounds.m in Sources */,
 				B79202781B28133C00F2D7BA /* GPXElement.m in Sources */,
 				B79202891B28133C00F2D7BA /* TBXML.m in Sources */,
+				976DB9F81B38438D00811937 /* GPXMapView.swift in Sources */,
 				B79202821B28133C00F2D7BA /* GPXRoute.m in Sources */,
 				97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */,
 				B79202771B28133C00F2D7BA /* GPXCopyright.m in Sources */,
+				976DBA041B3843BC00811937 /* GPXTrackPoint+MapKit.swift in Sources */,
+				976DB9F71B38438D00811937 /* GPXExtentCoordinates.swift in Sources */,
+				976DBA001B3843BC00811937 /* GPXFileManager.swift in Sources */,
+				976DBA051B3843BC00811937 /* GPXTrackSegment+MapKit.swift in Sources */,
 				B79202871B28133C00F2D7BA /* GPXType.m in Sources */,
 				B79202881B28133C00F2D7BA /* GPXWaypoint.m in Sources */,
 				B79202841B28133C00F2D7BA /* GPXTrack.m in Sources */,
@@ -376,11 +411,16 @@
 				B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */,
 				B792027C1B28133C00F2D7BA /* GPXMetadata.m in Sources */,
 				B792027B1B28133C00F2D7BA /* GPXLink.m in Sources */,
+				976DBA031B3843BC00811937 /* GPXTileServer.swift in Sources */,
 				B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */,
 				B792027A1B28133C00F2D7BA /* GPXExtensions.m in Sources */,
 				B79202851B28133C00F2D7BA /* GPXTrackPoint.m in Sources */,
 				B79202861B28133C00F2D7BA /* GPXTrackSegment.m in Sources */,
+				976DBA021B3843BC00811937 /* GPXFilesTableViewControlllerDelegate.swift in Sources */,
+				976DBA061B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift in Sources */,
+				976DBA011B3843BC00811937 /* GPXFilesTableViewController.swift in Sources */,
 				B792027E1B28133C00F2D7BA /* GPXPerson.m in Sources */,
+				976DBA081B3844A700811937 /* HistoryMapViewController.swift in Sources */,
 				B79202791B28133C00F2D7BA /* GPXEmail.m in Sources */,
 				B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */,
 				B79202831B28133C00F2D7BA /* GPXRoutePoint.m in Sources */,

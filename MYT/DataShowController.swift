@@ -10,6 +10,8 @@
 import UIKit
 
 class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var arrayData = NSMutableArray()
 
     @IBAction func onBackButtonPress(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -32,24 +34,28 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         
         let enumerator:NSDirectoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(fileurl.path!)!
         
-        return enumerator.allObjects.count
+        for dataEntity in enumerator.allObjects {
+            arrayData.addObject(dataEntity as! String)
+        }
+        
+        return arrayData.count
     }
-    
-    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell_ : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("SHOW_CELL") as? UITableViewCell
         if(cell_ == nil)
         {
-            cell_ = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "SHOW_CELL")
+            cell_ = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SHOW_CELL")
         }
         
-        cell_!.textLabel!.text = "Some cool location"
+        cell_!.textLabel!.text = arrayData[indexPath.row] as! String
         
         return cell_!
-        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("MYT_Segue_HistoryMapViewController", sender: nil)
     }
 
 }
