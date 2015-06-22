@@ -26,6 +26,10 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         
         var fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
         
+         if (NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) == false) {
+            return 0; // Crash free
+        }
+        
         let enumerator:NSDirectoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(fileurl.path!)!
         
         return enumerator.allObjects.count
