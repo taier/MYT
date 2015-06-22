@@ -13,7 +13,10 @@ import MessageUI
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet var mapView:MKMapView? = MKMapView()
-    @IBOutlet weak var locationLabel: UILabel!
+
+    @IBOutlet weak var buttonNav:UIButton? = UIButton()
+    @IBOutlet weak var buttonStart:UIButton? = UIButton()
+    @IBOutlet weak var buttonMenu:UIButton? = UIButton()
     
     let locationTracker = LocationTracker(threshold:1.0)
     var rootGPX = GPXRoot(creator: "Sample GPX")
@@ -27,6 +30,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        let cornerRadius:CGFloat = 4.0
+        
+        buttonNav?.layer.cornerRadius = cornerRadius
+        buttonStart?.layer.cornerRadius = cornerRadius
+        buttonMenu?.layer.cornerRadius = cornerRadius
         
         locationTracker.addLocationChangeObserver { (result) -> () in
             switch result {

@@ -147,6 +147,9 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="buttonMenu" destination="Ciw-nU-BHl" id="5Vt-sb-g30"/>
+                        <outlet property="buttonNav" destination="T1E-n0-Axd" id="x2i-oa-zYl"/>
+                        <outlet property="buttonStart" destination="upp-C6-CyG" id="V2o-lq-WCz"/>
                         <outlet property="mapView" destination="GSh-4i-fHa" id="0s9-Br-33f"/>
                         <segue destination="0f0-wx-u2j" kind="presentation" identifier="MYT_Segue_DataShowController" modalPresentationStyle="fullScreen" id="0Q5-ze-Tvb"/>
                     </connections>
