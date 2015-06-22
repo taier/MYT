@@ -151,7 +151,7 @@
                         <outlet property="buttonNav" destination="T1E-n0-Axd" id="x2i-oa-zYl"/>
                         <outlet property="buttonStart" destination="upp-C6-CyG" id="V2o-lq-WCz"/>
                         <outlet property="mapView" destination="GSh-4i-fHa" id="0s9-Br-33f"/>
-                        <segue destination="0f0-wx-u2j" kind="presentation" identifier="MYT_Segue_DataShowController" modalPresentationStyle="fullScreen" id="0Q5-ze-Tvb"/>
+                        <segue destination="fFY-Of-LKq" kind="presentation" identifier="MYT_Segue_DataShowController" id="0Q5-ze-Tvb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -264,9 +264,29 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="94L-ge-9LK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1x-Jo-0W1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208" y="428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CK2-vT-1yE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="formSheet" navigationBarHidden="YES" id="fFY-Of-LKq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n6c-fc-WvK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0f0-wx-u2j" kind="relationship" relationship="rootViewController" id="NNq-1O-nTH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kcg-vA-hDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="797" y="428"/>
         </scene>
