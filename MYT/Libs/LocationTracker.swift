@@ -17,8 +17,10 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
     /// An alias for the location change observer type.
     public typealias Observer = (location: LocationResult) -> ()
     
+    public var isPaused = false
+    
     /// The last location result received. Initially the location is unknown.
-    private var lastResult: LocationResult = .Failure(.UnknownLocation)
+    public var lastResult: LocationResult = .Failure(.UnknownLocation)
     
     /// The collection of location observers
     private var observers: [Observer] = []
@@ -104,6 +106,17 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
         
         self.locationManager.startUpdatingLocation()
     }
+    
+    public func pauseLocationUpdate() {
+        self.locationManager.stopUpdatingLocation()
+        isPaused = true;
+    }
+    
+    public func resumeLocationUpdate() {
+        self.locationManager.startUpdatingLocation()
+        isPaused = false;
+    }
+    
     
     // MARK: - Public
     

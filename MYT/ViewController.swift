@@ -17,6 +17,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     let locationTracker = LocationTracker(threshold:1.0)
     var rootGPX = GPXRoot(creator: "Sample GPX")
+    var isTracking = false;
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,25 +29,20 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         super.viewDidLoad()
         
         locationTracker.addLocationChangeObserver { (result) -> () in
-                switch result {
-                case .Success(let location):
-                    self.updateUserLocationVisually(location)
-                case .Failure(let reason):
-                    println("Some shit happened")
-                }
+            switch result {
+            case .Success(let location):
+                self.updateUserLocationVisually(location)
+            case .Failure(let reason):
+                println("Some shit happened")
             }
         }
+    }
     
     func updateUserLocationVisually(newLocation: LocationTracker.Location) -> Void {
         
         let coordinate = newLocation.physical.coordinate
         let locationString = "\(coordinate.latitude), \(coordinate.longitude)"
         
-        // Save GPX
-        createGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
-        
-        // Show on label
-        self.locationLabel.text = "Location: \(locationString)"
         
         // Create iOS Location from raw data
         var ctrpoint:CLLocationCoordinate2D = CLLocationCoordinate2D()
@@ -68,8 +64,16 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         var addAnnotation:MKPointAnnotation = MKPointAnnotation()
         addAnnotation.coordinate = ctrpoint
         
-        self.mapView?.addAnnotation(addAnnotation);
+        // Just showing start position, don't do anything with it yet
+        self.mapView?.addAnnotation(addAnnotation)
         
+        if(self.mapView?.annotations.count == 1) {
+            locationTracker.pauseLocationUpdate();
+            return;
+        }
+        
+        // Save GPX
+        addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
     }
     
     func plotPlacemarkOnMap(placemark:CLPlacemark?) {
@@ -87,14 +91,41 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         self.mapView?.addAnnotation(MKPlacemark(placemark: placemark))
     }
     
-    @IBAction func sendMail(sender: AnyObject) {
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // GPX stuff
+    func createNewGPXFile() {
+        rootGPX = nil;
+        rootGPX = GPXRoot(creator: "My Movements")
+        rootGPX.newTrack()
+    }
+    
+    func addPointToCurrentGPXFrom(latitude: CGFloat, longitude: CGFloat) -> Void {
+        
+        var track = rootGPX.newTrack()
+        track.newTrackpointWithLatitude(latitude, longitude: longitude)
+        
+        rootGPX.addTrack(track);
+        println("Logging location")
+    }
+    
+    func saveGPXToDrive(gpxToSave: GPXRoot) {
         
         let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
-        let fileurl =  dir.URLByAppendingPathComponent("awesome.gpx")
+        
+        var fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
+        
+        // Create directory if needed
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) == false) {
+            NSFileManager.defaultManager().createDirectoryAtPath(fileurl.path!, withIntermediateDirectories: false, attributes: nil, error: nil)
+        }
+        
+        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        fileurl = fileurl.URLByAppendingPathComponent(timestamp + ".gpx")
         
         let data = rootGPX.gpx().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-        
-        
         if NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) {
             var err:NSError?
             if let fileHandle = NSFileHandle(forWritingToURL: fileurl, error: &err) {
@@ -112,27 +143,43 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
                 println("Can't write \(err)")
             }
         }
+    }
+    
+    // Tracking stuff
+    @IBAction func trackButtonPress(sender: AnyObject) {
+        if (isTracking) {
+             // Stop tracking
+            sender.setTitle("Track", forState: UIControlState.Normal)
+            stopTrackingNewMovment()
+        } else {
+            // Start tracking
+            sender.setTitle("Stop", forState: UIControlState.Normal)
+            startTrackingNewMovment()
+        }
 
-        var picker = MFMailComposeViewController()
-        picker.mailComposeDelegate = self
-        picker.setSubject("My Waypoints")
-        picker.setMessageBody("Open in <a href=http://maplorer.com/view_gpx.html>Me</a>", isHTML: true)
-        picker.addAttachmentData(data, mimeType: "GPX", fileName: "MyAwesomeMovements.gpx")
-        
-        presentViewController(picker, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func startTrackingNewMovment() {
+        isTracking = true
+        
+        createNewGPXFile();
+        
+        // Resume updates if can
+        if(locationTracker.isPaused) {
+            locationTracker.resumeLocationUpdate();
+        }
     }
     
-    func createGPXFrom(latitude: CGFloat, longitude: CGFloat) -> Void {
+    func stopTrackingNewMovment() {
+        isTracking = false
         
-        var track = rootGPX.newTrack()
-        track.newTrackpointWithLatitude(latitude, longitude: longitude)
+        locationTracker.pauseLocationUpdate()
         
-        rootGPX.addTrack(track);
-        println("Logging location")
+        saveGPXToDrive(rootGPX)
     }
+    // Show stuff
     
+    @IBAction func showButtonPresse(sender: AnyObject) {
+        self.performSegueWithIdentifier("MYT_Segue_DataShowController", sender: nil)
+    }
 }

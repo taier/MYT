@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */; };
 		B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F539F1B1E4B10006223A9 /* AppDelegate.swift */; };
 		B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53A11B1E4B10006223A9 /* ViewController.swift */; };
 		B71F53A51B1E4B10006223A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71F53A31B1E4B10006223A9 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShowController.swift; sourceTree = "<group>"; };
 		B71F539A1B1E4B10006223A9 /* MYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F539E1B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B71F539F1B1E4B10006223A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97C9E5BE1B380C5F00D5AF0A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B71F53A11B1E4B10006223A9 /* ViewController.swift */,
+				97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		B71F53911B1E4B10006223A9 = {
 			isa = PBXGroup;
 			children = (
@@ -153,12 +164,9 @@
 		B71F539C1B1E4B10006223A9 /* MYT */ = {
 			isa = PBXGroup;
 			children = (
+				97C9E5BE1B380C5F00D5AF0A /* Controllers */,
 				B7ADE3731B1E549700AAE842 /* Libs */,
-				B71F539F1B1E4B10006223A9 /* AppDelegate.swift */,
-				B71F53A11B1E4B10006223A9 /* ViewController.swift */,
 				B71F53A31B1E4B10006223A9 /* Main.storyboard */,
-				B71F53A61B1E4B10006223A9 /* Images.xcassets */,
-				B71F53A81B1E4B10006223A9 /* LaunchScreen.xib */,
 				B71F539D1B1E4B10006223A9 /* Supporting Files */,
 			);
 			path = MYT;
@@ -167,6 +175,9 @@
 		B71F539D1B1E4B10006223A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B71F53A81B1E4B10006223A9 /* LaunchScreen.xib */,
+				B71F53A61B1E4B10006223A9 /* Images.xcassets */,
+				B71F539F1B1E4B10006223A9 /* AppDelegate.swift */,
 				B7ADE3741B1E558000AAE842 /* MapKit.framework */,
 				B71F539E1B1E4B10006223A9 /* Info.plist */,
 			);
@@ -356,6 +367,7 @@
 				B79202781B28133C00F2D7BA /* GPXElement.m in Sources */,
 				B79202891B28133C00F2D7BA /* TBXML.m in Sources */,
 				B79202821B28133C00F2D7BA /* GPXRoute.m in Sources */,
+				97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */,
 				B79202771B28133C00F2D7BA /* GPXCopyright.m in Sources */,
 				B79202871B28133C00F2D7BA /* GPXType.m in Sources */,
 				B79202881B28133C00F2D7BA /* GPXWaypoint.m in Sources */,
