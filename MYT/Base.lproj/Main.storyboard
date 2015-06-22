@@ -67,7 +67,7 @@
                                             <constraint firstAttribute="height" constant="44" id="TfJ-4c-s1Q"/>
                                             <constraint firstAttribute="width" constant="44" id="ufH-NA-b46"/>
                                         </constraints>
-                                        <state key="normal" title="Nav">
+                                        <state key="normal" image="Arrow">
                                             <color key="titleColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -271,4 +271,7 @@
             <point key="canvasLocation" x="797" y="428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Arrow" width="44" height="44"/>
+    </resources>
 </document>
