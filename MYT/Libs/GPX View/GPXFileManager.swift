@@ -19,7 +19,7 @@ class GPXFileManager : NSObject {
     
     class var gpxFilesFolder: String {
         get {
-            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
             return documentsDirectory
         }
     }
@@ -27,7 +27,7 @@ class GPXFileManager : NSObject {
     class var fileList: [AnyObject]  {
         get {
             let defaultManager = NSFileManager.defaultManager()
-            var filePathsArray : NSArray = defaultManager.subpathsOfDirectoryAtPath(self.gpxFilesFolder, error: nil)!
+            var filePathsArray : NSArray = try! defaultManager.subpathsOfDirectoryAtPath(self.gpxFilesFolder)
             let predicate : NSPredicate = NSPredicate(format: "SELF EndsWith '.\(kFileExt)'")
             filePathsArray = filePathsArray.filteredArrayUsingPredicate(predicate)
             
@@ -43,7 +43,7 @@ class GPXFileManager : NSObject {
         var ext = ".\(kFileExt)" // add dot to file extension
         //check if extension is already there
         let tmpExt : String = filename.pathExtension
-        println("extension: \(tmpExt)")
+        print("extension: \(tmpExt)")
         if kFileExt ==  tmpExt  {
             ext = ""
         }
@@ -59,13 +59,20 @@ class GPXFileManager : NSObject {
         //check if name exists
         let finalFilePath: String = self.pathForFilename(filename)
         //save file
-        println("Saving file at path: \(finalFilePath)")
+        print("Saving file at path: \(finalFilePath)")
         // write gpx to file
         var writeError: NSError?
-        let saved: Bool = gpxContents.writeToFile(finalFilePath, atomically: true, encoding: NSUTF8StringEncoding, error: &writeError)
+        let saved: Bool
+        do {
+            try gpxContents.writeToFile(finalFilePath, atomically: true, encoding: NSUTF8StringEncoding)
+            saved = true
+        } catch var error as NSError {
+            writeError = error
+            saved = false
+        }
         if !saved {
             if let error = writeError {
-                println("[ERROR] GPXFileManager:save: \(error.localizedDescription)")
+                print("[ERROR] GPXFileManager:save: \(error.localizedDescription)")
             }
         }
     }
@@ -74,10 +81,17 @@ class GPXFileManager : NSObject {
         let filepath: String = self.pathForFilename(filename)
         let defaultManager = NSFileManager.defaultManager()
         var error: NSError?
-        let deleted: Bool = defaultManager.removeItemAtPath(filepath, error: &error)
+        let deleted: Bool
+        do {
+            try defaultManager.removeItemAtPath(filepath)
+            deleted = true
+        } catch var error1 as NSError {
+            error = error1
+            deleted = false
+        }
         if !deleted {
              if let e = error {
-                println("[ERROR] GPXFileManager:removeFile: \(filepath) : \(e.localizedDescription)")
+                print("[ERROR] GPXFileManager:removeFile: \(filepath) : \(e.localizedDescription)")
             }
         }
     }

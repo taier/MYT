@@ -34,7 +34,7 @@ extension GPXWaypoint : MKAnnotation {
         self.subtitle = subtitleFormat.stringFromDate(now)
     }
     
-    public var title:String! {
+    public var title:String? {
         set {
             self.name = newValue
         }
@@ -43,7 +43,7 @@ extension GPXWaypoint : MKAnnotation {
         }
     }
     
-    public var subtitle:String! {
+    public var subtitle:String? {
         set{
             self.desc = newValue
         }
