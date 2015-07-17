@@ -83,7 +83,7 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
     /**
         Initializes a new LocationTracker with the default minimum distance threshold of 0 meters.
     
-        - returns: LocationTracker with the default minimum distance threshold of 0 meters.
+        :returns: LocationTracker with the default minimum distance threshold of 0 meters.
     */
     public convenience override init() {
         self.init(threshold: 0.0)
@@ -92,9 +92,9 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
     /**
         Initializes a new LocationTracker with the specified minimum distance threshold.
     
-        - parameter threshold: The minimum distance change in meters before a new location is published.
+        :param: threshold The minimum distance change in meters before a new location is published.
     
-        - returns: LocationTracker with the specified minimum distance threshold.
+        :returns: LocationTracker with the specified minimum distance threshold.
     */
     public init(threshold: Double, locationManager:CLLocationManager = CLLocationManager()) {
         self.threshold = threshold
@@ -123,7 +123,7 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
     /**
         Adds a location change observer to execute whenever the location significantly changes.
     
-        - parameter observer: The callback function to execute when a location change occurs.
+        :param: observer The callback function to execute when a location change occurs.
     */
     public func addLocationChangeObserver(observer: Observer) -> Void {
         observers.append(observer)
@@ -131,7 +131,7 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
     
     // MARK: - CLLocationManagerDelegate
     
-    public func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         #if os(iOS)
             switch status {
             case .AuthorizedWhenInUse:
@@ -144,13 +144,13 @@ public class LocationTracker: NSObject, CLLocationManagerDelegate {
         #endif
     }
     
-    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    public func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         let result = LocationResult.Failure(Reason.Other(error))
         self.publishChangeWithResult(result)
         self.lastResult = result
     }
     
-    public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+    public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let currentLocation = locations.first as? CLLocation {
             if shouldUpdateWithLocation(currentLocation) {
                 CLGeocoder().reverseGeocodeLocation(currentLocation, completionHandler: { (placemarks, error) -> Void in

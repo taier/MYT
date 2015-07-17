@@ -42,7 +42,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
             case .Success(let location):
                 self.updateUserLocationVisually(location)
             case .Failure(let reason):
-                print("Some shit happened")
+                println("Some shit happened")
             }
         }
     }
@@ -59,18 +59,18 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         ctrpoint.longitude = coordinate.longitude
         
         // Set MapView zoom
-        let latDelta:CLLocationDegrees = 0.1
-        let longDelta:CLLocationDegrees = 0.1
+        var latDelta:CLLocationDegrees = 0.1
+        var longDelta:CLLocationDegrees = 0.1
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        let latitudinalMeters = 100.0
-        let longitudinalMeters = 100.0
-        let theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
+        var latitudinalMeters = 100.0
+        var longitudinalMeters = 100.0
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
         
         self.mapView?.setRegion(theRegion, animated: true)
         
         // Create Pin
-        let addAnnotation:MKPointAnnotation = MKPointAnnotation()
+        var addAnnotation:MKPointAnnotation = MKPointAnnotation()
         addAnnotation.coordinate = ctrpoint
         
         // Just showing start position, don't do anything with it yet
@@ -87,20 +87,20 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     func plotPlacemarkOnMap(placemark:CLPlacemark?) {
 
-        let latDelta:CLLocationDegrees = 0.1
-        let longDelta:CLLocationDegrees = 0.1
+        var latDelta:CLLocationDegrees = 0.1
+        var longDelta:CLLocationDegrees = 0.1
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        let latitudinalMeters = 100.0
-        let longitudinalMeters = 100.0
-        let theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(placemark!.location.coordinate, latitudinalMeters, longitudinalMeters)
+        var latitudinalMeters = 100.0
+        var longitudinalMeters = 100.0
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(placemark!.location.coordinate, latitudinalMeters, longitudinalMeters)
         
         self.mapView?.setRegion(theRegion, animated: true)
         
         self.mapView?.addAnnotation(MKPlacemark(placemark: placemark))
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -113,25 +113,22 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     func addPointToCurrentGPXFrom(latitude: CGFloat, longitude: CGFloat) -> Void {
         
-        let track = rootGPX.newTrack()
+        var track = rootGPX.newTrack()
         track.newTrackpointWithLatitude(latitude, longitude: longitude)
         
         rootGPX.addTrack(track);
-        print("Logging location")
+        println("Logging location")
     }
     
     func saveGPXToDrive(gpxToSave: GPXRoot) {
         
-        let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as NSURL!
+        let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
         
         var fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
         
         // Create directory if needed
         if (NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) == false) {
-            do {
-                try NSFileManager.defaultManager().createDirectoryAtPath(fileurl.path!, withIntermediateDirectories: false, attributes: nil)
-            } catch _ {
-            }
+            NSFileManager.defaultManager().createDirectoryAtPath(fileurl.path!, withIntermediateDirectories: false, attributes: nil, error: nil)
         }
         
         let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
@@ -140,23 +137,19 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         let data = rootGPX.gpx().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
         if NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) {
             var err:NSError?
-            do {
-                let fileHandle = try NSFileHandle(forWritingToURL: fileurl)
+            if let fileHandle = NSFileHandle(forWritingToURL: fileurl, error: &err) {
                 fileHandle.seekToEndOfFile()
                 fileHandle.writeData(data)
                 fileHandle.closeFile()
-            } catch let error as NSError {
-                err = error
-                print("Can't open fileHandle \(err)")
+            }
+            else {
+                println("Can't open fileHandle \(err)")
             }
         }
         else {
             var err:NSError?
-            do {
-                try data.writeToURL(fileurl, options: .DataWritingAtomic)
-            } catch let error as NSError {
-                err = error
-                print("Can't write \(err)")
+            if !data.writeToURL(fileurl, options: .DataWritingAtomic, error: &err) {
+                println("Can't write \(err)")
             }
         }
     }

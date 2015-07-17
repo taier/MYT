@@ -26,7 +26,7 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
         
-        let fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
+        var fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
         
          if (NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) == false) {
             return 0; // Crash free
@@ -43,7 +43,7 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell_ : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("SHOW_CELL") as UITableViewCell
+        var cell_ : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("SHOW_CELL") as? UITableViewCell
         if(cell_ == nil)
         {
             cell_ = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SHOW_CELL")

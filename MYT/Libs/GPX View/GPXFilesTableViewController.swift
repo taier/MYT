@@ -58,7 +58,7 @@ class GPXFilesTableViewController : UITableViewController, UINavigationBarDelega
     }
     
     func closeGPXFilesTableViewController() {
-        print("closeGPXFIlesTableViewController()")
+        println("closeGPXFIlesTableViewController()")
         self.dismissViewControllerAnimated(true, completion: { () -> Void in
         })
     }
@@ -128,22 +128,22 @@ class GPXFilesTableViewController : UITableViewController, UINavigationBarDelega
     }
     
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        print("action sheet clicked button at index \(buttonIndex)")
+        println("action sheet clicked button at index \(buttonIndex)")
         switch buttonIndex {
         case 0:
             self.actionSendEmailWithAttachment(self.selectedRowIndex)
         case 1:
             self.actionLoadFileAtIndex(self.selectedRowIndex)
         case 2:
-            print("ActionSheet: Cancel")
+            println("ActionSheet: Cancel")
         case 3: //Delete
             self.actionDeleteFileAtIndex(self.selectedRowIndex)
         default: //cancel
-            print("action Sheet do nothing")
+            println("action Sheet do nothing")
         }
     }
     func actionSheetCancel(actionSheet: UIActionSheet) {
-        print("actionsheet cancel")
+        println("actionsheet cancel")
     }
     
     //#pragma mark - UIAlertView delegate methods
@@ -165,7 +165,7 @@ class GPXFilesTableViewController : UITableViewController, UINavigationBarDelega
     
     func actionLoadFileAtIndex(rowIndex: Int) {
         let filename: String = fileList.objectAtIndex(rowIndex) as! String
-        print("load gpx File: \(filename)")
+        println("load gpx File: \(filename)")
         let gpx = GPXParser.parseGPXAtPath(GPXFileManager.pathForFilename(filename))
         self.delegate?.didLoadGPXFileWithName(filename.stringByDeletingPathExtension, gpxRoot: gpx)
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -183,9 +183,9 @@ class GPXFilesTableViewController : UITableViewController, UINavigationBarDelega
         composer.setSubject("[Open GPX tracker] Gpx File")
         
         //Add some text to the body and attach the file
-        let body = "Open GPX Tracker \n is an open source app for Apple devices. Create GPS tracks and export them to GPX files."
+        var body = "Open GPX Tracker \n is an open source app for Apple devices. Create GPS tracks and export them to GPX files."
         composer.setMessageBody(body, isHTML: true)
-        let fileData: NSData = try! NSData(contentsOfFile: filepath, options: .DataReadingMappedIfSafe)
+        let fileData: NSData = NSData(contentsOfFile: filepath, options: .DataReadingMappedIfSafe, error: nil)!
         composer.addAttachmentData(fileData, mimeType:"application/gpx+xml", fileName: filepath.lastPathComponent)
         
         //Display the comopser view controller
@@ -195,16 +195,16 @@ class GPXFilesTableViewController : UITableViewController, UINavigationBarDelega
     
 
 
-    func mailComposeController(controller: MFMailComposeViewController,
+    func mailComposeController(controller: MFMailComposeViewController!,
         didFinishWithResult result: MFMailComposeResult,
-        error: NSError?){
+        error: NSError!){
             
-            switch(result.rawValue){
-            case MFMailComposeResultSent.rawValue:
-                print("Email sent")
+            switch(result.value){
+            case MFMailComposeResultSent.value:
+                println("Email sent")
                 
             default:
-                print("Whoops")
+                println("Whoops")
             }
             self.dismissViewControllerAnimated(true, completion: nil)
             

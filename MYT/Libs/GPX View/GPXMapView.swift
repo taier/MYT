@@ -82,9 +82,9 @@ class GPXMapView : MKMapView {
     }
     
     func removeWaypoint(waypoint: GPXWaypoint) {
-        let index = waypoints.indexOf(waypoint)
+        let index = find(waypoints, waypoint)
         if index == nil {
-            print("Waypoint not found")
+            println("Waypoint not found")
             return
         }
         self.removeAnnotation(waypoint)
@@ -134,7 +134,7 @@ class GPXMapView : MKMapView {
     
     
     func exportToGPXString() -> String {
-        print("Exporting map data into GPX String")
+        println("Exporting map data into GPX String")
         //Create the gpx structure
         let gpx = GPXRoot(creator: kGPXCreatorString)
         gpx.addWaypoints(self.waypoints)

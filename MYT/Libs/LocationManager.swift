@@ -192,7 +192,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     isRunning = false
   }
   
-  internal func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+  internal func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
     
     stopLocationManger()
     
@@ -213,7 +213,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     }
   }
   
-  internal func locationManager(manager: CLLocationManager, didUpdateLocations locations: [AnyObject]) {
+  internal func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     
     let arrayOfLocation = locations as NSArray
     let location = arrayOfLocation.lastObject as! CLLocation
@@ -252,10 +252,10 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     }
   }
   
-  internal func locationManager(manager: CLLocationManager,
+  internal func locationManager(manager: CLLocationManager!,
     didChangeAuthorizationStatus status: CLAuthorizationStatus) {
       var hasAuthorised = false
-      let verboseKey = status
+      var verboseKey = status
       switch status {
       case CLAuthorizationStatus.Restricted:
         locationStatus = NSLocalizedString("Restricted Access", comment: "")
@@ -298,7 +298,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
       }
   }
   
-  func reverseGeocodeLocationWithLatLon(latitude latitude:Double, longitude: Double,onReverseGeocodingCompletionHandler:LMReverseGeocodeCompletionHandler){
+  func reverseGeocodeLocationWithLatLon(#latitude:Double, longitude: Double,onReverseGeocodingCompletionHandler:LMReverseGeocodeCompletionHandler){
     
     let location:CLLocation = CLLocation(latitude:latitude, longitude: longitude)
     
@@ -319,11 +319,11 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error)->Void in
       
       if error != nil {
-        self.reverseGeocodingCompletionHandler!(reverseGecodeInfo:nil,placemark:nil, error: error!.localizedDescription)
+        self.reverseGeocodingCompletionHandler!(reverseGecodeInfo:nil,placemark:nil, error: error.localizedDescription)
       } else {
         
-        if let placemark = placemarks?[0] as CLPlacemark? {
-          let address = AddressParser()
+        if let placemark = placemarks?[0] as? CLPlacemark {
+          var address = AddressParser()
           address.parseAppleLocationData(placemark)
           let addressDict = address.getAddressDictionary()
           self.reverseGeocodingCompletionHandler!(reverseGecodeInfo: addressDict,placemark:placemark,error: nil)
@@ -335,7 +335,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     })
   }
   
-  func geocodeAddressString(address address:NSString, onGeocodingCompletionHandler:LMGeocodeCompletionHandler){
+  func geocodeAddressString(#address:NSString, onGeocodingCompletionHandler:LMGeocodeCompletionHandler){
     
     self.geocodingCompletionHandler = onGeocodingCompletionHandler
     
@@ -345,7 +345,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
   private func geoCodeAddress(address:NSString){
     
     let geocoder = CLGeocoder()
-    geocoder.geocodeAddressString(address as String, completionHandler: {(placemarks: [AnyObject], error: NSError!) -> Void in
+    geocoder.geocodeAddressString(address as String, completionHandler: {(placemarks: [AnyObject]!, error: NSError!) -> Void in
       
       if error != nil {
         
@@ -363,7 +363,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     })
   }
   
-  func geocodeUsingGoogleAddressString(address address:NSString, onGeocodingCompletionHandler:LMGeocodeCompletionHandler){
+  func geocodeUsingGoogleAddressString(#address:NSString, onGeocodingCompletionHandler:LMGeocodeCompletionHandler){
     
     self.geocodingCompletionHandler = onGeocodingCompletionHandler
     
@@ -379,7 +379,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     performOperationForURL(urlString, type: GeoCodingType.Geocoding)
   }
   
-  func reverseGeocodeLocationUsingGoogleWithLatLon(latitude latitude:Double, longitude: Double,onReverseGeocodingCompletionHandler:LMReverseGeocodeCompletionHandler){
+  func reverseGeocodeLocationUsingGoogleWithLatLon(#latitude:Double, longitude: Double,onReverseGeocodingCompletionHandler:LMReverseGeocodeCompletionHandler){
     
     self.reverseGeocodingCompletionHandler = onReverseGeocodingCompletionHandler
     
@@ -391,7 +391,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     reverseGeocodeLocationUsingGoogleWithLatLon(latitude: coord.coordinate.latitude, longitude: coord.coordinate.longitude, onReverseGeocodingCompletionHandler: onReverseGeocodingCompletionHandler)
   }
   
-  private func reverseGocodeUsingGoogle(latitude latitude:Double, longitude: Double){
+  private func reverseGocodeUsingGoogle(#latitude:Double, longitude: Double){
     
     var urlString = "http://maps.googleapis.com/maps/api/geocode/json?latlng=\(latitude),\(longitude)&sensor=true" as NSString
     
@@ -412,7 +412,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
       
       if error != nil {
         
-        self.setCompletionHandler(responseInfo:nil, placemark:nil, error:error?.localizedDescription, type:type)
+        self.setCompletionHandler(responseInfo:nil, placemark:nil, error:error.localizedDescription, type:type)
       } else {
         
         let kStatus = "status"
@@ -425,7 +425,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
         
         let dataAsString: NSString? = NSString(data: data, encoding: NSUTF8StringEncoding)
         
-        let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+        let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
         var status = jsonResult.valueForKey(kStatus) as! NSString
         status = status.lowercaseString
@@ -453,7 +453,7 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     })
   }
   
-  private func setCompletionHandler(responseInfo responseInfo:NSDictionary?,placemark:CLPlacemark?, error:String?,type:GeoCodingType){
+  private func setCompletionHandler(#responseInfo:NSDictionary?,placemark:CLPlacemark?, error:String?,type:GeoCodingType){
     
     if type == GeoCodingType.Geocoding {
       self.geocodingCompletionHandler!(gecodeInfo:responseInfo,placemark:placemark,error:error)
@@ -499,7 +499,7 @@ private class AddressParser: NSObject{
   
   private func getAddressDictionary()-> NSDictionary {
     
-    let addressDict = NSMutableDictionary()
+    var addressDict = NSMutableDictionary()
     
     addressDict.setValue(latitude, forKey: "latitude")
     addressDict.setValue(longitude, forKey: "longitude")
@@ -516,7 +516,7 @@ private class AddressParser: NSObject{
   
   private func parseAppleLocationData(placemark:CLPlacemark) {
     
-    let addressLines = placemark.addressDictionary["FormattedAddressLines"] as! NSArray
+    var addressLines = placemark.addressDictionary["FormattedAddressLines"] as! NSArray
     
     //self.streetNumber = placemark.subThoroughfare ? placemark.subThoroughfare : ""
     self.streetNumber = placemark.thoroughfare != nil ? placemark.thoroughfare : ""
@@ -569,8 +569,8 @@ private class AddressParser: NSObject{
     
     let index:NSInteger = inArray.indexOfObjectPassingTest { (obj, idx, stop) -> Bool in
       
-      let objDict:NSDictionary = obj as! NSDictionary
-      let types:NSArray = objDict.objectForKey("types") as! NSArray
+      var objDict:NSDictionary = obj as! NSDictionary
+      var types:NSArray = objDict.objectForKey("types") as! NSArray
       let type = types.firstObject as! NSString
       return type.isEqualToString(component as String)
     }
@@ -583,7 +583,7 @@ private class AddressParser: NSObject{
       return ""
     }
     
-    let type = ((inArray.objectAtIndex(index) as! NSDictionary).valueForKey(ofType as String)!) as! NSString
+    var type = ((inArray.objectAtIndex(index) as! NSDictionary).valueForKey(ofType as String)!) as! NSString
     
     if type.length > 0 {
       
