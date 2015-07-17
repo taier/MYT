@@ -28,12 +28,13 @@ class HistoryMapViewController: UIViewController {
         
         for dataEntity in enumerator.allObjects {
             
-            var filePath = fileurl.path! + (dataEntity as! String)
+            var filePath = fileurl.path! + "/" + (dataEntity as! String)
             var gpxString = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: nil)
-            var gpx = GPXRoot(creator: "Awesome stuff")
-            gpx.add
+            var gpx = GPXParser.parseGPXWithString(gpxString);
+        
+            mapView.importFromGPXRoot(gpx)
+
             
-            mapView.importFromGPXRoot(gpxString as! GPXRoot)
             return
         }
     }
