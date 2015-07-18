@@ -38,4 +38,7 @@ class HistoryMapViewController: UIViewController {
             return
         }
     }
+    @IBAction func onBackButton(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true);
+    }
 }
