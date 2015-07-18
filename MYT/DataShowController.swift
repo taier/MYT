@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 AwesomeCompany. All rights reserved.
 //
 
-
 import UIKit
 
 class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
     var arrayData = NSMutableArray()
+    var _selectedFileName: String?
 
     //IBActions
     
@@ -36,6 +36,11 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupData()
+    }
+    
     //Alert handlers
     
     func feedbackHandler(alert: UIAlertAction!) {
@@ -52,13 +57,13 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     
     // Table view stuff
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func setupData() {
         let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
         
         var fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
         
-         if (NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) == false) {
-            return 0; // Crash free
+        if (NSFileManager.defaultManager().fileExistsAtPath(fileurl.path!) == false) {
+            return; // Crash free
         }
         
         let enumerator:NSDirectoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(fileurl.path!)!
@@ -66,7 +71,9 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         for dataEntity in enumerator.allObjects {
             arrayData.addObject(dataEntity as! String)
         }
-        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayData.count
     }
     
@@ -78,13 +85,20 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
             cell_ = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SHOW_CELL")
         }
         
-        cell_!.textLabel!.text = arrayData[indexPath.row] as! String
+        cell_!.textLabel!.text = arrayData[indexPath.row] as? String
         
         return cell_!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        _selectedFileName = arrayData[indexPath.row] as? String
         self.performSegueWithIdentifier("MYT_Segue_HistoryMapViewController", sender: nil)
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "MYT_Segue_HistoryMapViewController") {
+            var destViewController:HistoryMapViewController = segue.destinationViewController as! HistoryMapViewController
+            destViewController.setSelectedName(_selectedFileName!)
+        }
+    }
 }

@@ -13,22 +13,27 @@ class HistoryMapViewController: UIViewController {
     
     @IBOutlet weak var mapViewHistory: MKMapView!
     
+    var _selectedFileName: String?
+    
+    // Setter TODO: Make cooler!
+    func setSelectedName(name:String) -> Void {
+        _selectedFileName = name;
+    }
+    
     override func viewDidLoad() {
         var rootFromDrive:GPXRoot = self.readGPXRootFromDrive()
         
         for track in rootFromDrive.tracks {
             self.plotPlacemarkOnMap(track as! GPXTrack)
         }
-        
-        println("YO!")
     }
-    
     
     func readGPXRootFromDrive() -> GPXRoot {
         
         let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last as! NSURL
         
-        var fileurl =  dir.URLByAppendingPathComponent("GPXFiles/test.gpx")
+        var fileurl =  dir.URLByAppendingPathComponent("GPXFiles")
+        fileurl = fileurl.URLByAppendingPathComponent(_selectedFileName!)
         
         var gpxString = String(contentsOfFile: fileurl.path!, encoding: NSUTF8StringEncoding, error: nil)
         var gpx = GPXParser.parseGPXWithString(gpxString);
@@ -73,7 +78,6 @@ class HistoryMapViewController: UIViewController {
         
         // Just showing start position, don't do anything with it yet
         self.mapViewHistory?.addAnnotation(addAnnotation)
-
     }
     
     //***** Outlet Actions
