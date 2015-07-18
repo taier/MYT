@@ -253,6 +253,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="infoButton" destination="2K1-hw-ZPh" id="avK-wh-4U9"/>
                         <segue destination="qhn-FY-q70" kind="push" identifier="MYT_Segue_HistoryMapViewController" id="zQA-bc-EeH"/>
                     </connections>
                 </viewController>

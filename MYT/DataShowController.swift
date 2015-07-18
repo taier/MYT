@@ -11,6 +11,7 @@ import UIKit
 
 class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var infoButton: UIBarButtonItem!
     var arrayData = NSMutableArray()
 
     //IBActions
@@ -25,6 +26,7 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         var alert : UIAlertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.barButtonItem = self.infoButton
         
         alert.addAction(UIAlertAction(title: "Feedback", style: UIAlertActionStyle.Default, handler: feedbackHandler))
         alert.addAction(UIAlertAction(title: "Share", style: UIAlertActionStyle.Default, handler: shareHandler))
