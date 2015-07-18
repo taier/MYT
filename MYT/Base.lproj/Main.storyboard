@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -254,7 +255,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="infoButton" destination="2K1-hw-ZPh" id="avK-wh-4U9"/>
-                        <segue destination="qhn-FY-q70" kind="push" identifier="MYT_Segue_HistoryMapViewController" id="zQA-bc-EeH"/>
+                        <segue destination="qhn-FY-q70" kind="show" identifier="MYT_Segue_HistoryMapViewController" id="zQA-bc-EeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1x-Jo-0W1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,25 +293,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="akt-Kc-Ykr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="akt-Kc-Ykr">
+                                <rect key="frame" x="8" y="72" width="304" height="304"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="akt-Kc-Ykr" secondAttribute="height" multiplier="1:1" id="L2c-Vi-HtC"/>
+                                </constraints>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="akt-Kc-Ykr" secondAttribute="trailing" constant="8" id="3WV-r6-hVZ"/>
+                            <constraint firstItem="akt-Kc-Ykr" firstAttribute="top" secondItem="bap-ah-yQQ" secondAttribute="top" constant="72" id="NJy-xo-1Db"/>
+                            <constraint firstItem="akt-Kc-Ykr" firstAttribute="leading" secondItem="bap-ah-yQQ" secondAttribute="leading" constant="8" id="Qbu-R5-oHG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vra-Du-nah">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="jS3-tG-v1L">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8C4-io-tmO">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onBackButton:" destination="qhn-FY-q70" eventType="touchUpInside" id="hj8-fg-klO"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="zFA-ZH-tyG"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

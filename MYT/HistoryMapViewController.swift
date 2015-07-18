@@ -21,6 +21,8 @@ class HistoryMapViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        mapViewHistory.layer.cornerRadius = 4.0
+        
         var rootFromDrive:GPXRoot = self.readGPXRootFromDrive()
         
         for track in rootFromDrive.tracks {
