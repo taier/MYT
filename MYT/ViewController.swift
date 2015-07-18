@@ -85,21 +85,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
     }
     
-    func plotPlacemarkOnMap(placemark:CLPlacemark?) {
-
-        var latDelta:CLLocationDegrees = 0.1
-        var longDelta:CLLocationDegrees = 0.1
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        
-        var latitudinalMeters = 100.0
-        var longitudinalMeters = 100.0
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(placemark!.location.coordinate, latitudinalMeters, longitudinalMeters)
-        
-        self.mapView?.setRegion(theRegion, animated: true)
-        
-        self.mapView?.addAnnotation(MKPlacemark(placemark: placemark))
-    }
-    
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
     }
