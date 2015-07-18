@@ -13,12 +13,39 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     
     var arrayData = NSMutableArray()
 
+    //IBActions
+    
     @IBAction func onBackButtonPress(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func onInfoButtonPress(sender: AnyObject) {
+        let alertTitle = "Thank you for downloading MYT"
+        let alertMessage = "If you like the app you can leave feedback, tell your friends about it and you can also rate it in the App Store."
+        var alert : UIAlertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
+        alert.popoverPresentationController?.sourceView = self.view
+        
+        alert.addAction(UIAlertAction(title: "Feedback", style: UIAlertActionStyle.Default, handler: feedbackHandler))
+        alert.addAction(UIAlertAction(title: "Share", style: UIAlertActionStyle.Default, handler: shareHandler))
+        alert.addAction(UIAlertAction(title: "Rate", style: UIAlertActionStyle.Default, handler: rateHandler))
+        
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    //Alert handlers
+    
+    func feedbackHandler(alert: UIAlertAction!) {
+        NSLog("Feedback")
+    }
+
+    func shareHandler(alert: UIAlertAction!) {
+        NSLog("Share")
+    }
+    
+    func rateHandler(alert: UIAlertAction!) {
+        NSLog("Rate")
     }
     
     // Table view stuff
