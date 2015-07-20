@@ -18,9 +18,10 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var buttonStart:UIButton? = UIButton()
     @IBOutlet weak var buttonMenu:UIButton? = UIButton()
     
-    let locationTracker = LocationTracker(threshold:1.0)
+    let locationTracker = LocationTracker(threshold:15)
+    var polyline:MKPolyline = MKPolyline ()
     var rootGPX = GPXRoot(creator: "Sample GPX")
-    var isTracking = false;
+    var isTracking = false
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,7 +84,47 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         
         // Save GPX
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
+        
+        
+        //Draw Line
     }
+    
+    
+    func drawLineOnMap() {
+        // Remove old polyline if one exists
+        self.mapView?.removeOverlay(self.polyline)
+        
+        var arrayOfCoordinates:NSMutableArray = NSMutableArray()
+//        for annotation in self.mapView?.annotations.generate() {
+//            
+//            
+//        }
+    }
+    
+//    - (void)drawLine {
+//    
+//    // remove polyline if one exists
+//    [self.mapView removeOverlay:self.polyline];
+//    
+//    // create an array of coordinates from allPins
+//    CLLocationCoordinate2D coordinates[self.allPins.count];
+//    int i = 0;
+//    for (Pin *currentPin in self.allPins) {
+//    coordinates[i] = currentPin.coordinate;
+//    i++;
+//    }
+//    
+//    // create a polyline with all cooridnates
+//    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:self.allPins.count];
+//    [self.mapView addOverlay:polyline];
+//    self.polyline = polyline;
+//    
+//    // create an MKPolylineView and add it to the map view
+//    self.lineView = [[MKPolylineView alloc]initWithPolyline:self.polyline];
+//    self.lineView.strokeColor = [UIColor redColor];
+//    self.lineView.lineWidth = 5;
+//    
+//    }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
