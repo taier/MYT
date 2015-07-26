@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import MessageUI
 
-class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKMapViewDelegate{
     
     @IBOutlet var mapView:MKMapView? = MKMapView()
 
@@ -18,10 +18,14 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var buttonStart:UIButton? = UIButton()
     @IBOutlet weak var buttonMenu:UIButton? = UIButton()
     
-    let locationTracker = LocationTracker(threshold:15)
-    var polyline:MKPolyline = MKPolyline ()
+    let locationTracker = LocationTracker(threshold:1)
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
+    
+    // Line
+    var polyline:MKPolyline = MKPolyline ()
+    var arrayOfPoints = [CLLocationCoordinate2D]()
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,6 +35,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.mapView?.delegate = self
         
         let cornerRadius:CGFloat = 4.0
         
@@ -75,9 +80,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         addAnnotation.coordinate = ctrpoint
         
         // Just showing start position, don't do anything with it yet
-        self.mapView?.addAnnotation(addAnnotation)
         
-        if(self.mapView?.annotations.count == 1) {
+        if(self.mapView?.annotations.count == 0) {
+            self.mapView?.addAnnotation(addAnnotation)
             locationTracker.pauseLocationUpdate();
             return;
         }
@@ -85,46 +90,23 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         // Save GPX
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
         
+        // Save to Lines
+        arrayOfPoints.append(ctrpoint)
         
         //Draw Line
+        self.drawLineOnMap()
     }
     
     
     func drawLineOnMap() {
         // Remove old polyline if one exists
         self.mapView?.removeOverlay(self.polyline)
+//        rootGPX
+        let pointer: UnsafeMutablePointer<CLLocationCoordinate2D> = UnsafeMutablePointer(arrayOfPoints)
         
-        var arrayOfCoordinates:NSMutableArray = NSMutableArray()
-//        for annotation in self.mapView?.annotations.generate() {
-//            
-//            
-//        }
+        self.polyline = MKPolyline(coordinates: pointer, count: arrayOfPoints.count)
+        self.mapView?.addOverlay(self.polyline)
     }
-    
-//    - (void)drawLine {
-//    
-//    // remove polyline if one exists
-//    [self.mapView removeOverlay:self.polyline];
-//    
-//    // create an array of coordinates from allPins
-//    CLLocationCoordinate2D coordinates[self.allPins.count];
-//    int i = 0;
-//    for (Pin *currentPin in self.allPins) {
-//    coordinates[i] = currentPin.coordinate;
-//    i++;
-//    }
-//    
-//    // create a polyline with all cooridnates
-//    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:self.allPins.count];
-//    [self.mapView addOverlay:polyline];
-//    self.polyline = polyline;
-//    
-//    // create an MKPolylineView and add it to the map view
-//    self.lineView = [[MKPolylineView alloc]initWithPolyline:self.polyline];
-//    self.lineView.strokeColor = [UIColor redColor];
-//    self.lineView.lineWidth = 5;
-//    
-//    }
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -216,5 +198,18 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBAction func showButtonPresse(sender: AnyObject) {
         self.performSegueWithIdentifier("MYT_Segue_DataShowController", sender: nil)
+    }
+    
+    // Map View Delegate
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if overlay is MKPolyline {
+            var polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.lineWidth = 5
+            return polylineRenderer
+        }
+        
+        return nil
     }
 }

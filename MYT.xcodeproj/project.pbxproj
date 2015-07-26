@@ -46,6 +46,7 @@
 		B79202871B28133C00F2D7BA /* GPXType.m in Sources */ = {isa = PBXBuildFile; fileRef = B792026E1B28133C00F2D7BA /* GPXType.m */; };
 		B79202881B28133C00F2D7BA /* GPXWaypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202701B28133C00F2D7BA /* GPXWaypoint.m */; };
 		B79202891B28133C00F2D7BA /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = B79202731B28133C00F2D7BA /* TBXML.m */; };
+		B7A332EE1B65769700553036 /* CoordinatesObjest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A332ED1B65769700553036 /* CoordinatesObjest.swift */; };
 		B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE3711B1E549100AAE842 /* LocationManager.swift */; };
 		B7ADE3751B1E558000AAE842 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7ADE3741B1E558000AAE842 /* MapKit.framework */; };
 		B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */; };
@@ -130,6 +131,7 @@
 		B79202711B28133C00F2D7BA /* MYT-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MYT-Bridging-Header.h"; path = "Libs/GPX/MYT-Bridging-Header.h"; sourceTree = "<group>"; };
 		B79202721B28133C00F2D7BA /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = Libs/GPX/TBXML.h; sourceTree = "<group>"; };
 		B79202731B28133C00F2D7BA /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = Libs/GPX/TBXML.m; sourceTree = "<group>"; };
+		B7A332ED1B65769700553036 /* CoordinatesObjest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoordinatesObjest.swift; path = MYT/CoordinatesObjest.swift; sourceTree = "<group>"; };
 		B7ADE3711B1E549100AAE842 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Libs/LocationManager.swift; sourceTree = "<group>"; };
 		B7ADE3741B1E558000AAE842 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTracker.swift; path = Libs/LocationTracker.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		B71F53911B1E4B10006223A9 = {
 			isa = PBXGroup;
 			children = (
+				B7A332ED1B65769700553036 /* CoordinatesObjest.swift */,
 				B71F539C1B1E4B10006223A9 /* MYT */,
 				B71F53B21B1E4B10006223A9 /* MYTTests */,
 				B71F539B1B1E4B10006223A9 /* Products */,
@@ -331,11 +334,13 @@
 		B71F53921B1E4B10006223A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = AwesomeCompany;
 				TargetAttributes = {
 					B71F53991B1E4B10006223A9 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 99TE4Z2NY7;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -394,6 +399,7 @@
 			files = (
 				B792027D1B28133C00F2D7BA /* GPXParser.m in Sources */,
 				B79202751B28133C00F2D7BA /* GPXBounds.m in Sources */,
+				B7A332EE1B65769700553036 /* CoordinatesObjest.swift in Sources */,
 				B79202781B28133C00F2D7BA /* GPXElement.m in Sources */,
 				B79202891B28133C00F2D7BA /* TBXML.m in Sources */,
 				976DB9F81B38438D00811937 /* GPXMapView.swift in Sources */,
@@ -556,6 +562,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Deniss Kaibagarovs (C23ABQL56D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,6 +578,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b212e2b8-5661-4178-ad6e-541906afd33a";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -582,6 +591,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Deniss Kaibagarovs (C23ABQL56D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,6 +607,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b212e2b8-5661-4178-ad6e-541906afd33a";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";

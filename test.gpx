@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="My Movements">
+	<trk>
+	</trk>
+	<trk>
+		<trkseg>
+			<trkpt lat="56.892589" lon="24.053160">
+			</trkpt>
+		</trkseg>
+	</trk>
+	<trk>
+		<trkseg>
+			<trkpt lat="56.892843" lon="24.053000">
+			</trkpt>
+		</trkseg>
+	</trk>
+	<trk>
+		<trkseg>
+			<trkpt lat="56.892685" lon="24.053088">
+			</trkpt>
+		</trkseg>
+	</trk>
+	<trk>
+		<trkseg>
+			<trkpt lat="56.892712" lon="24.053080">
+			</trkpt>
+		</trkseg>
+	</trk>
+</gpx>
