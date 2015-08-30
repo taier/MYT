@@ -11,6 +11,7 @@ import UIKit
 class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
+    
     var arrayData = NSMutableArray()
     var _selectedFileName: String?
 

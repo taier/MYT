@@ -10,6 +10,8 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var labelTopText: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
