@@ -17,10 +17,13 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     @IBOutlet weak var buttonNav:UIButton? = UIButton()
     @IBOutlet weak var buttonStart:UIButton? = UIButton()
     @IBOutlet weak var buttonMenu:UIButton? = UIButton()
+    @IBOutlet weak var viewBottom: UIView!
     
     let locationTracker = LocationTracker(threshold:1)
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
+    
+    var lastUserRegion:MKCoordinateRegion = MKCoordinateRegion()
     
     // Line
     var polyline:MKPolyline = MKPolyline ()
@@ -53,6 +56,19 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        addBlurToView(viewBottom,viewToBlurr: buttonMenu!)
+        addBlurToView(viewBottom,viewToBlurr: buttonNav!)
+    }
+    
+    func addBlurToView(rootView:UIView, viewToBlurr:UIView) {
+        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
+        
+        visualEffectView.frame = viewToBlurr.frame;
+        viewBottom.insertSubview(visualEffectView, belowSubview: viewToBlurr)
+        
+    }
+    
     func updateUserLocationVisually(newLocation: LocationTracker.Location) -> Void {
         
         let coordinate = newLocation.physical.coordinate
@@ -71,9 +87,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         var latitudinalMeters = 100.0
         var longitudinalMeters = 100.0
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
+        lastUserRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
         
-        self.mapView?.setRegion(theRegion, animated: true)
+        self.mapView?.setRegion(lastUserRegion, animated: true)
         
         // Create Pin
         var addAnnotation:MKPointAnnotation = MKPointAnnotation()
@@ -194,7 +210,13 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         saveGPXToDrive(rootGPX)
     }
+    
     // Show stuff
+    
+    @IBAction func onCenterButtonPress(sender: AnyObject) {
+        self.mapView?.setRegion(lastUserRegion, animated: true)
+    }
+    
     
     @IBAction func showButtonPresse(sender: AnyObject) {
         self.performSegueWithIdentifier("MYT_Segue_DataShowController", sender: nil)
