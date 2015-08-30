@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -187,26 +187,48 @@
                                     <constraint firstAttribute="width" constant="320" id="p8x-ie-3TL"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SHOW_CELL" textLabel="6hs-JH-f4R" detailTextLabel="Xq5-5O-qv8" style="IBUITableViewCellStyleSubtitle" id="WWt-7Q-tV0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SHOW_CELL" id="WWt-7Q-tV0" customClass="HistoryTableViewCell" customModule="MYT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WWt-7Q-tV0" id="vZN-SC-1T8">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6hs-JH-f4R">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xq5-5O-qv8">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="history-icon" translatesAutoresizingMaskIntoConstraints="NO" id="600-Ur-sEe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="43.5"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="RoO-at-bzi"/>
+                                                        <constraint firstAttribute="height" constant="44" id="uST-bY-3ay"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se5-rh-rX2">
+                                                    <rect key="frame" x="102" y="12.5" width="185" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="185" id="zTu-DB-aKg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="600-Ur-sEe" secondAttribute="centerY" id="KHp-nf-mK0"/>
+                                                <constraint firstItem="600-Ur-sEe" firstAttribute="leading" secondItem="vZN-SC-1T8" secondAttribute="leading" id="XNL-Mb-4Gq"/>
+                                                <constraint firstAttribute="centerX" secondItem="600-Ur-sEe" secondAttribute="centerX" id="XVR-JM-vn1"/>
+                                                <constraint firstAttribute="trailing" secondItem="se5-rh-rX2" secondAttribute="trailing" id="dZV-v4-vhV"/>
+                                                <constraint firstAttribute="centerY" secondItem="600-Ur-sEe" secondAttribute="centerY" id="rTE-u3-qU7"/>
+                                                <constraint firstAttribute="centerY" secondItem="se5-rh-rX2" secondAttribute="centerY" id="ztt-R9-9Qj"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="KHp-nf-mK0"/>
+                                                    <exclude reference="XVR-JM-vn1"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelTopText" destination="se5-rh-rX2" id="R7e-na-bOl"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="default">
@@ -328,5 +350,6 @@
     </scenes>
     <resources>
         <image name="Arrow" width="44" height="44"/>
+        <image name="history-icon" width="44" height="44"/>
     </resources>
 </document>
