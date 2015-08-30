@@ -8,10 +8,21 @@
 
 import UIKit
 import MapKit
+import MessageUI
 
-class HistoryMapViewController: UIViewController, MKMapViewDelegate {
+class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var mapViewHistory: MKMapView!
+    
+    var maxLatitude:CGFloat = 0;
+    var minLatitude:CGFloat = 9999;
+    
+    var maxLogitude:CGFloat = 0;
+    var minLogitude:CGFloat = 9999;
+    
+    var middlePoint:Int = 0;
+    
+    var middleCtrpoint:CLLocationCoordinate2D = CLLocationCoordinate2D()
     
     var polyline:MKPolyline = MKPolyline ()
     var arrayOfPoints = [CLLocationCoordinate2D]()
@@ -30,9 +41,22 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate {
         
         self.mapViewHistory.delegate = self;
         
+        var middlePoint = rootFromDrive.tracks.count/2;
+        
+        var i:Int = 0;
         for track in rootFromDrive.tracks {
-            self.plotPlacemarkOnMap(track as! GPXTrack)
+            i++;
+            self.plotPlacemarkOnMap(track as! GPXTrack, needToSaveMiddlePoint: middlePoint == i ? true : false)
         }
+        
+        // Set Map Zoom
+        
+        var latitudinalMeters = 100.0
+        var longitudinalMeters = 100.0
+        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(middleCtrpoint, latitudinalMeters, longitudinalMeters)
+        
+        self.mapViewHistory?.setRegion(theRegion, animated: true)
+        
     }
     
     func readGPXRootFromDrive() -> GPXRoot {
@@ -46,11 +70,10 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate {
         var gpx = GPXParser.parseGPXWithString(gpxString);
         
         return gpx;
-
     }
     
     //TODO: Same as in ViewController. Make one?
-    func plotPlacemarkOnMap(gpxTrack:GPXTrack) {
+    func plotPlacemarkOnMap(gpxTrack:GPXTrack, needToSaveMiddlePoint:Bool) {
         
         if (gpxTrack.tracksegments.count == 0) {
             return; // Don't have data to show :(
@@ -68,21 +91,31 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate {
         ctrpoint.latitude = latitude
         ctrpoint.longitude = longitude
         
+        if (needToSaveMiddlePoint) {
+            self.middleCtrpoint = ctrpoint;
+        }
+        
+        // For Region
+        self.maxLatitude = gpxTrackPoint.latitude >= self.maxLatitude ? gpxTrackPoint.latitude : self.maxLatitude;
+        self.maxLogitude = gpxTrackPoint.longitude >= self.maxLogitude ? gpxTrackPoint.longitude : self.maxLogitude;
+        
+        self.minLatitude =  gpxTrackPoint.latitude <= self.minLatitude ? gpxTrackPoint.latitude : self.minLatitude;
+        self.minLogitude = gpxTrackPoint.longitude <= self.minLogitude ? gpxTrackPoint.longitude : self.minLogitude;
+        
         // Save to Lines
         arrayOfPoints.append(ctrpoint)
         
-        
-        // Set MapView zoom
-        var latDelta:CLLocationDegrees = 0.1
-        var longDelta:CLLocationDegrees = 0.1
-        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        
-        var latitudinalMeters = 100.0
-        var longitudinalMeters = 100.0
-        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
-        
-        self.mapViewHistory?.setRegion(theRegion, animated: true)
-        
+//        // Set MapView zoom
+//        var latDelta:CLLocationDegrees = 0.1
+//        var longDelta:CLLocationDegrees = 0.1
+//        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+//        
+//        var latitudinalMeters = 100.0
+//        var longitudinalMeters = 100.0
+//        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
+//        
+//        self.mapViewHistory?.setRegion(theRegion, animated: true)
+//        
 //        // Create Pin
 //        var addAnnotation:MKPointAnnotation = MKPointAnnotation()
 //        addAnnotation.coordinate = ctrpoint
@@ -122,6 +155,39 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate {
         }
         
         return nil
+    }
+    
+    @IBAction func onShareButtonPress(sender: AnyObject) {
+        self.sendLocationImage();
+    }
+    
+    
+    func sendLocationImage() -> Void {
+        //Create the UIImage
+        UIGraphicsBeginImageContext(self.mapViewHistory.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        
+        let fileData = UIImageJPEGRepresentation(image, 1.0);
+        
+        //Set the subject and message of the email
+        mailComposer.setSubject("Have you heard abut MYT")
+        mailComposer.setMessageBody("Here is your locations!", isHTML: false)
+        
+        mailComposer.addAttachmentData(fileData, mimeType: "image/png", fileName: "LocatonImage.png");
+        self.presentViewController(mailComposer, animated: true, completion: nil)
+    }
+    
+    // ****** Mail Composer Delegates
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
 
 }

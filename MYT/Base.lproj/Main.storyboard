@@ -336,7 +336,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vra-Du-nah">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="zFA-ZH-tyG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="zFA-ZH-tyG">
+                            <connections>
+                                <action selector="onShareButtonPress:" destination="qhn-FY-q70" id="esk-FR-f6L"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
