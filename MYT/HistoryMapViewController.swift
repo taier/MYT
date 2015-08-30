@@ -9,9 +9,12 @@
 import UIKit
 import MapKit
 
-class HistoryMapViewController: UIViewController {
+class HistoryMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapViewHistory: MKMapView!
+    
+    var polyline:MKPolyline = MKPolyline ()
+    var arrayOfPoints = [CLLocationCoordinate2D]()
     
     var _selectedFileName: String?
     
@@ -24,6 +27,8 @@ class HistoryMapViewController: UIViewController {
         mapViewHistory.layer.cornerRadius = 4.0
         
         var rootFromDrive:GPXRoot = self.readGPXRootFromDrive()
+        
+        self.mapViewHistory.delegate = self;
         
         for track in rootFromDrive.tracks {
             self.plotPlacemarkOnMap(track as! GPXTrack)
@@ -63,6 +68,10 @@ class HistoryMapViewController: UIViewController {
         ctrpoint.latitude = latitude
         ctrpoint.longitude = longitude
         
+        // Save to Lines
+        arrayOfPoints.append(ctrpoint)
+        
+        
         // Set MapView zoom
         var latDelta:CLLocationDegrees = 0.1
         var longDelta:CLLocationDegrees = 0.1
@@ -74,12 +83,16 @@ class HistoryMapViewController: UIViewController {
         
         self.mapViewHistory?.setRegion(theRegion, animated: true)
         
-        // Create Pin
-        var addAnnotation:MKPointAnnotation = MKPointAnnotation()
-        addAnnotation.coordinate = ctrpoint
+//        // Create Pin
+//        var addAnnotation:MKPointAnnotation = MKPointAnnotation()
+//        addAnnotation.coordinate = ctrpoint
         
         // Just showing start position, don't do anything with it yet
-        self.mapViewHistory?.addAnnotation(addAnnotation)
+//        self.mapViewHistory?.addAnnotation(addAnnotation)
+        
+        //Draw Line
+        self.drawLineOnMap()
+
     }
     
     //***** Outlet Actions
@@ -87,4 +100,28 @@ class HistoryMapViewController: UIViewController {
     @IBAction func onBackButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true);
     }
+    
+    // ***** Draw stuff on Map
+    
+    func drawLineOnMap() {
+        // Remove old polyline if one exists
+        self.mapViewHistory?.removeOverlay(self.polyline)
+        //        rootGPX
+        let pointer: UnsafeMutablePointer<CLLocationCoordinate2D> = UnsafeMutablePointer(arrayOfPoints)
+        
+        self.polyline = MKPolyline(coordinates: pointer, count: arrayOfPoints.count)
+        self.mapViewHistory?.addOverlay(self.polyline)
+    }
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if overlay is MKPolyline {
+            var polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.lineWidth = 5
+            return polylineRenderer
+        }
+        
+        return nil
+    }
+
 }

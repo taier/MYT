@@ -18,6 +18,7 @@
 		976DBA061B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */; };
 		976DBA081B3844A700811937 /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DBA071B3844A700811937 /* HistoryMapViewController.swift */; };
 		97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */; };
+		B7034BF51B93382D003711D1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */; };
 		B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F539F1B1E4B10006223A9 /* AppDelegate.swift */; };
 		B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53A11B1E4B10006223A9 /* ViewController.swift */; };
 		B71F53A51B1E4B10006223A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B71F53A31B1E4B10006223A9 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXWaypoint+MKAnnotation.swift"; path = "Libs/GPX View/GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		976DBA071B3844A700811937 /* HistoryMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
 		97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShowController.swift; sourceTree = "<group>"; };
+		B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B71F539A1B1E4B10006223A9 /* MYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F539E1B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B71F539F1B1E4B10006223A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,11 +161,20 @@
 		97C9E5BE1B380C5F00D5AF0A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B7034BF61B93383C003711D1 /* History Controller */,
 				B71F53A11B1E4B10006223A9 /* ViewController.swift */,
 				97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */,
-				976DBA071B3844A700811937 /* HistoryMapViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B7034BF61B93383C003711D1 /* History Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */,
+				976DBA071B3844A700811937 /* HistoryMapViewController.swift */,
+			);
+			name = "History Controller";
 			sourceTree = "<group>";
 		};
 		B71F53911B1E4B10006223A9 = {
@@ -412,6 +423,7 @@
 				976DBA051B3843BC00811937 /* GPXTrackSegment+MapKit.swift in Sources */,
 				B79202871B28133C00F2D7BA /* GPXType.m in Sources */,
 				B79202881B28133C00F2D7BA /* GPXWaypoint.m in Sources */,
+				B7034BF51B93382D003711D1 /* HistoryTableViewCell.swift in Sources */,
 				B79202841B28133C00F2D7BA /* GPXTrack.m in Sources */,
 				B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */,
 				B7ADE3771B217B7F00AAE842 /* LocationTracker.swift in Sources */,
@@ -578,7 +590,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b212e2b8-5661-4178-ad6e-541906afd33a";
+				PROVISIONING_PROFILE = "1ff9adf8-7897-4c48-8abf-893a6301a0b7";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,7 +619,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b212e2b8-5661-4178-ad6e-541906afd33a";
+				PROVISIONING_PROFILE = "1ff9adf8-7897-4c48-8abf-893a6301a0b7";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
