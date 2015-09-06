@@ -51,10 +51,20 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
         
         // Set Map Zoom
         
-        var latitudinalMeters = 100.0
-        var longitudinalMeters = 100.0
+        var latitudinalMeters:Double = Double((maxLatitude - minLatitude) * 100000);
+        var longitudinalMeters:Double = Double((maxLogitude - minLogitude) * 100000);
+        
+        var middleX:CLLocationDegrees = CLLocationDegrees((maxLatitude + minLatitude)/2.0);
+        var middleY:CLLocationDegrees = CLLocationDegrees((maxLogitude + minLogitude)/2.0);
+        
+        middleCtrpoint = CLLocationCoordinate2D(latitude: middleX, longitude: middleY);
+        
         var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(middleCtrpoint, latitudinalMeters, longitudinalMeters)
         
+        if (theRegion.center.latitude > 500) {
+            return;
+        }
+
         self.mapViewHistory?.setRegion(theRegion, animated: true)
         
     }
@@ -104,24 +114,6 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
         
         // Save to Lines
         arrayOfPoints.append(ctrpoint)
-        
-//        // Set MapView zoom
-//        var latDelta:CLLocationDegrees = 0.1
-//        var longDelta:CLLocationDegrees = 0.1
-//        var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-//        
-//        var latitudinalMeters = 100.0
-//        var longitudinalMeters = 100.0
-//        var theRegion:MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
-//        
-//        self.mapViewHistory?.setRegion(theRegion, animated: true)
-//        
-//        // Create Pin
-//        var addAnnotation:MKPointAnnotation = MKPointAnnotation()
-//        addAnnotation.coordinate = ctrpoint
-        
-        // Just showing start position, don't do anything with it yet
-//        self.mapViewHistory?.addAnnotation(addAnnotation)
         
         //Draw Line
         self.drawLineOnMap()

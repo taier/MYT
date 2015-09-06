@@ -40,7 +40,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         super.viewDidLoad()
         self.mapView?.delegate = self
         
-        let cornerRadius:CGFloat = 4.0
+        let cornerRadius:CGFloat = 15.0
         
         buttonNav?.layer.cornerRadius = cornerRadius
         buttonStart?.layer.cornerRadius = cornerRadius
@@ -100,6 +100,10 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         if(self.mapView?.annotations.count == 0) {
             self.mapView?.addAnnotation(addAnnotation)
             locationTracker.pauseLocationUpdate();
+            return;
+        }
+        
+        if(!isTracking) {
             return;
         }
         
