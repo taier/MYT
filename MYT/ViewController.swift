@@ -159,7 +159,10 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
             NSFileManager.defaultManager().createDirectoryAtPath(fileurl.path!, withIntermediateDirectories: false, attributes: nil, error: nil)
         }
         
-        let timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        
+        let timestamp = dateFormatter.stringFromDate(NSDate())
         fileurl = fileurl.URLByAppendingPathComponent(timestamp + ".gpx")
         
         let data = rootGPX.gpx().dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!

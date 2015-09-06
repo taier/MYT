@@ -80,13 +80,20 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell_ : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("SHOW_CELL") as? UITableViewCell
-        if(cell_ == nil)
-        {
-            cell_ = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SHOW_CELL")
-        }
+        var cell_ : HistoryTableViewCell? = tableView.dequeueReusableCellWithIdentifier("SHOW_CELL") as? HistoryTableViewCell
         
-        cell_!.textLabel!.text = arrayData[indexPath.row] as? String
+        let fileName = arrayData[indexPath.row] as? String;
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        
+        let dateString = fileName!.stringByDeletingPathExtension
+        
+        let date = formatter.dateFromString(dateString)
+       
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+
+        cell_!.labelTopText!.text = formatter.stringFromDate(date!)
         
         return cell_!
     }
