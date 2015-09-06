@@ -40,11 +40,15 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         super.viewDidLoad()
         self.mapView?.delegate = self
         
-        let cornerRadius:CGFloat = 15.0
+        let cornerRadius:CGFloat = 5.0
         
         buttonNav?.layer.cornerRadius = cornerRadius
         buttonStart?.layer.cornerRadius = cornerRadius
         buttonMenu?.layer.cornerRadius = cornerRadius
+        
+        buttonNav?.clipsToBounds = true;
+        buttonStart?.clipsToBounds = true;
+        buttonMenu?.clipsToBounds = true;
         
         locationTracker.addLocationChangeObserver { (result) -> () in
             switch result {
@@ -65,6 +69,10 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight)) as UIVisualEffectView
         
         visualEffectView.frame = viewToBlurr.frame;
+        
+        visualEffectView.layer.cornerRadius = viewToBlurr.layer.cornerRadius;
+        visualEffectView.clipsToBounds = viewToBlurr.clipsToBounds;
+        
         viewBottom.insertSubview(visualEffectView, belowSubview: viewToBlurr)
         
     }
@@ -201,6 +209,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     
     func startTrackingNewMovment() {
         isTracking = true
+        
+        self.mapView?.removeOverlay(self.polyline)
+        arrayOfPoints.removeAll(keepCapacity: false)
         
         createNewGPXFile();
         
