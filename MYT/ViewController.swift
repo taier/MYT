@@ -209,17 +209,17 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     @IBAction func trackButtonPress(sender: AnyObject) {
         if (isTracking) {
              // Stop tracking
-            sender.setTitle("Track", forState: UIControlState.Normal)
+//            sender.setTitle("Track", forState: UIControlState.Normal)
             stopTrackingNewMovment()
         } else {
             // Start tracking
-            sender.setTitle("Stop", forState: UIControlState.Normal)
+//            sender.setTitle("Stop", forState: UIControlState.Normal)
             startTrackingNewMovment()
         }
     }
     
     @IBAction func stopButtonPress(sender: AnyObject) {
-        
+        stopTrackingNewMovment();
     }
     
     
