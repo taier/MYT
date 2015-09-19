@@ -13,6 +13,10 @@ import MessageUI
 class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var mapViewHistory: MKMapView!
+    @IBOutlet weak var infoContainerView: UIView!
+    @IBOutlet weak var infoDateLabel: UILabel!
+    @IBOutlet weak var infoDurationLabel: UILabel!
+    @IBOutlet weak var infoDistanceLabel: UILabel!
     
     var maxLatitude:CGFloat = 0;
     var minLatitude:CGFloat = 9999;
@@ -36,6 +40,7 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
     
     override func viewDidLoad() {
         mapViewHistory.layer.cornerRadius = 4.0
+        infoContainerView.layer.cornerRadius = 4.0
         
         var rootFromDrive:GPXRoot = self.readGPXRootFromDrive()
         
