@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
@@ -45,15 +46,41 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     //Alert handlers
     
     func feedbackHandler(alert: UIAlertAction!) {
-        NSLog("Feedback")
+       
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposer = MFMailComposeViewController()
+            mailComposer.mailComposeDelegate = self
+            
+            //Set the subject and message of the email
+            mailComposer.setSubject("MYT Support")
+            mailComposer.setMessageBody("Hey, my question is:", isHTML: false)
+            let recipents:NSArray = ["ask@sudo.mobi"]
+            mailComposer.setToRecipients(recipents as [AnyObject])
+            
+            self.presentViewController(mailComposer, animated: true, completion: nil)
+        } else {
+            let alertController = UIAlertController(title: "Sorry",
+                message:"Please, setup mail on device before sending reports.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
 
     func shareHandler(alert: UIAlertAction!) {
         NSLog("Share")
+        let objectsToShare = ["Hey! Check out that awesome app! Map My Travel - Your Personal Travel Sharing! https://goo.gl/BiJHSr"]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        
+        //New Excluded Activities Code
+//        activityVC.excludedActivityTypes = [UIActivityTypeAirDrop, UIActivityTypeAddToReadingList]
+        
+        self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
     func rateHandler(alert: UIAlertAction!) {
         NSLog("Rate")
+        UIApplication.sharedApplication().openURL(NSURL(string:"https://itunes.apple.com/us/app/map-my-travel-your-personal/id1041673662?ls=1&mt=8")!)
     }
     
     // Table view stuff
@@ -108,5 +135,13 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
             var destViewController:HistoryMapViewController = segue.destinationViewController as! HistoryMapViewController
             destViewController.setSelectedName(_selectedFileName!)
         }
+    }
+    
+    // ****** Mail Composer Delegates
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }
