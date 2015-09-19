@@ -226,6 +226,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     func startTrackingNewMovment() {
         isTracking = true
         
+        mainButtonTrackContainer.hidden = true;
+        mainButtonStopContainer.hidden = false;
+        
         self.mapView?.removeOverlay(self.polyline)
         arrayOfPoints.removeAll(keepCapacity: false)
         
@@ -243,10 +246,16 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     func stopTrackingNewMovment() {
         
         isTracking = false
+        
+        mainButtonTrackContainer.hidden = false;
+        mainButtonStopContainer.hidden = true;
+        
         locationTracker.pauseLocationUpdate()
         self.mapView?.removeAnnotations(self.mapView?.annotations)
         
         timeTrackingTimer.invalidate();
+        
+        durationLabel.text = "00:00:00";
         
         rootGPX.metadata = GPXMetadata();
         rootGPX.metadata.name = timeString as! String;
@@ -265,6 +274,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         var seconds = datecomponenets.second >= 60 ? 0 : datecomponenets.second;
         
         timeString = NSString(format:"%02d:%02d:%02d", hours, minutes, seconds)
+        
+        durationLabel.text = timeString as! String;
         
         println(timeString)
     }
