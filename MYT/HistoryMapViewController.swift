@@ -18,6 +18,9 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
     @IBOutlet weak var infoDurationLabel: UILabel!
     @IBOutlet weak var infoDistanceLabel: UILabel!
     
+    @IBOutlet weak var cardContainer: UIView!
+    
+    
     var maxLatitude:CGFloat = 0;
     var minLatitude:CGFloat = 9999;
     
@@ -65,8 +68,10 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
         infoDurationLabel.text = rootFromDrive.metadata.name;
         
         // UI
-        mapViewHistory.layer.cornerRadius = 4.0
-        infoContainerView.layer.cornerRadius = 4.0
+        cardContainer.layer.cornerRadius = 4.0
+        
+//        cardContainer.layer.shadowColor = UIColor.blackColor().CGColor
+//        cardContainer.layer.shadowRadius = 1.0
         
         // Set Map Zoom
         
