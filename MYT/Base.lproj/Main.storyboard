@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -271,7 +271,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RoE-R7-s3r">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="1lQ-IM-fki"/>
@@ -344,17 +344,28 @@
                                     <outlet property="delegate" destination="0f0-wx-u2j" id="keh-tY-WNb"/>
                                 </connections>
                             </tableView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kli-y7-vas">
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="6VJ-nY-zNE"/>
+                                    <constraint firstAttribute="height" constant="50" id="xeK-x2-JrV"/>
+                                </constraints>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Kli-y7-vas" firstAttribute="top" secondItem="RoE-R7-s3r" secondAttribute="bottom" id="1pZ-6V-Ak4"/>
                             <constraint firstItem="RoE-R7-s3r" firstAttribute="leading" secondItem="qI7-JP-yMb" secondAttribute="leading" id="Auf-Tz-ACz"/>
                             <constraint firstAttribute="trailing" secondItem="RoE-R7-s3r" secondAttribute="trailing" id="Dvk-v7-fTE"/>
                             <constraint firstItem="RoE-R7-s3r" firstAttribute="top" secondItem="sEs-q6-nXv" secondAttribute="bottom" constant="40" id="H78-W5-Oe1"/>
+                            <constraint firstItem="Kli-y7-vas" firstAttribute="leading" secondItem="qI7-JP-yMb" secondAttribute="leading" id="K5x-yZ-w0g"/>
                             <constraint firstItem="RoE-R7-s3r" firstAttribute="leading" secondItem="qI7-JP-yMb" secondAttribute="leading" id="WAh-07-COX"/>
+                            <constraint firstItem="DnF-zN-h1A" firstAttribute="top" secondItem="Kli-y7-vas" secondAttribute="bottom" id="Xav-nS-1C7"/>
                             <constraint firstItem="DnF-zN-h1A" firstAttribute="top" secondItem="RoE-R7-s3r" secondAttribute="bottom" constant="8" symbolic="YES" id="Z1C-g0-6pI"/>
                             <constraint firstItem="RoE-R7-s3r" firstAttribute="top" secondItem="qI7-JP-yMb" secondAttribute="topMargin" id="Zf2-ez-mJv"/>
-                            <constraint firstItem="DnF-zN-h1A" firstAttribute="top" secondItem="RoE-R7-s3r" secondAttribute="bottom" id="cIR-xD-crI"/>
+                            <constraint firstItem="DnF-zN-h1A" firstAttribute="top" secondItem="RoE-R7-s3r" secondAttribute="bottom" constant="50" id="cIR-xD-crI"/>
                             <constraint firstItem="RoE-R7-s3r" firstAttribute="top" secondItem="qI7-JP-yMb" secondAttribute="top" id="ejh-bf-en7"/>
+                            <constraint firstAttribute="trailing" secondItem="Kli-y7-vas" secondAttribute="trailing" id="lfv-7e-veA"/>
                             <constraint firstAttribute="trailing" secondItem="RoE-R7-s3r" secondAttribute="trailing" id="lw8-tO-crM"/>
                         </constraints>
                         <variation key="default">
@@ -364,6 +375,7 @@
                                 <exclude reference="WAh-07-COX"/>
                                 <exclude reference="ejh-bf-en7"/>
                                 <exclude reference="Z1C-g0-6pI"/>
+                                <exclude reference="cIR-xD-crI"/>
                             </mask>
                         </variation>
                     </view>
@@ -381,6 +393,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="iadBanner" destination="Kli-y7-vas" id="fHP-4J-RKa"/>
                         <outlet property="infoButton" destination="2K1-hw-ZPh" id="avK-wh-4U9"/>
                         <segue destination="qhn-FY-q70" kind="show" identifier="MYT_Segue_HistoryMapViewController" id="zQA-bc-EeH"/>
                     </connections>

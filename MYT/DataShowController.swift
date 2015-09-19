@@ -8,11 +8,13 @@
 
 import UIKit
 import MessageUI
+import iAd
 
-class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
+class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, ADBannerViewDelegate {
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
+    @IBOutlet weak var iadBanner: ADBannerView!
     var arrayData = NSMutableArray()
     var _selectedFileName: String?
 
@@ -41,7 +43,9 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupData()
+        self.setupiAd()
     }
+    
     
     //Alert handlers
     
@@ -143,5 +147,20 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    func setupiAd() {
+        iadBanner.delegate = self
+        iadBanner.hidden = true
+    }
+    
+    // ****** iAD Banner Delegate
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        iadBanner.hidden = false
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        iadBanner.hidden = true
     }
 }
