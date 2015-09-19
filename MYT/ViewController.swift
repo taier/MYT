@@ -22,6 +22,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     let locationTracker = LocationTracker(threshold:1)
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
+    var startTracikngTime:NSDate = NSDate()
+    var timeTrackingTimer:NSTimer = NSTimer()
     
     var lastUserRegion:MKCoordinateRegion = MKCoordinateRegion()
     
@@ -96,8 +98,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         var latitudinalMeters = 100.0
         var longitudinalMeters = 100.0
         lastUserRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
-        
-        self.mapView?.setRegion(lastUserRegion, animated: true)
+       
         
         // Create Pin
         var addAnnotation:MKPointAnnotation = MKPointAnnotation()
@@ -108,6 +109,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         if(self.mapView?.annotations.count == 0) {
             self.mapView?.addAnnotation(addAnnotation)
             locationTracker.pauseLocationUpdate();
+            self.mapView?.setRegion(lastUserRegion, animated: true)
             return;
         }
         
@@ -204,7 +206,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
             sender.setTitle("Stop", forState: UIControlState.Normal)
             startTrackingNewMovment()
         }
-
     }
     
     func startTrackingNewMovment() {
@@ -212,6 +213,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         self.mapView?.removeOverlay(self.polyline)
         arrayOfPoints.removeAll(keepCapacity: false)
+        
+        startTracikngTime = NSDate();
+        timeTrackingTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateTimeLabel"), userInfo: nil, repeats: true);
         
         createNewGPXFile();
         
@@ -222,11 +226,29 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     }
     
     func stopTrackingNewMovment() {
-        isTracking = false
         
+        isTracking = false
         locationTracker.pauseLocationUpdate()
+        self.mapView?.removeAnnotations(self.mapView?.annotations)
+        
+        timeTrackingTimer.invalidate();
         
         saveGPXToDrive(rootGPX)
+    }
+    
+    
+    func updateTimeLabel() {
+        
+        let calendar = NSCalendar.currentCalendar()
+        let datecomponenets = calendar.components(NSCalendarUnit.SecondCalendarUnit | NSCalendarUnit.MinuteCalendarUnit | NSCalendarUnit.HourCalendarUnit, fromDate: startTracikngTime, toDate: NSDate(), options: nil)
+        
+        var hours = datecomponenets.hour >= 60 ? 0 : datecomponenets.hour;
+        var minutes = datecomponenets.minute >= 60 ? 0 : datecomponenets.minute;
+        var seconds = datecomponenets.second >= 60 ? 0 : datecomponenets.second;
+        
+        let timeString = NSString(format:"%02d:%02d:%02d", hours, minutes, seconds)
+        
+        println(timeString)
     }
     
     // Show stuff

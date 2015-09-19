@@ -21,7 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location!</string>
+	<string>Location will be used for mapping purposes.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
