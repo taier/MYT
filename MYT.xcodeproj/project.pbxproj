@@ -351,7 +351,7 @@
 				TargetAttributes = {
 					B71F53991B1E4B10006223A9 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 99TE4Z2NY7;
+						DevelopmentTeam = Q6594L6U8E;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -590,7 +590,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7d16685d-7d39-477a-b38c-5307a6518017";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -619,7 +619,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7d16685d-7d39-477a-b38c-5307a6518017";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
