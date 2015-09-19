@@ -19,6 +19,13 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     @IBOutlet weak var buttonMenu:UIButton? = UIButton()
     @IBOutlet weak var viewBottom: UIView!
     
+    @IBOutlet weak var mainButtonContainer: UIView!
+    @IBOutlet weak var mainButtonTrackContainer: UIView!
+    @IBOutlet weak var mainButtonStopContainer: UIView!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    
+    
     let locationTracker = LocationTracker(threshold:1)
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
@@ -46,12 +53,14 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         let cornerRadius:CGFloat = 5.0
         
         buttonNav?.layer.cornerRadius = cornerRadius
-        buttonStart?.layer.cornerRadius = cornerRadius
+//        buttonStart?.layer.cornerRadius = cornerRadius
         buttonMenu?.layer.cornerRadius = cornerRadius
         
         buttonNav?.clipsToBounds = true;
-        buttonStart?.clipsToBounds = true;
+//        buttonStart?.clipsToBounds = true;
         buttonMenu?.clipsToBounds = true;
+        
+        mainButtonContainer.layer.cornerRadius = cornerRadius
         
         locationTracker.addLocationChangeObserver { (result) -> () in
             switch result {
@@ -208,6 +217,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
             startTrackingNewMovment()
         }
     }
+    
+    @IBAction func stopButtonPress(sender: AnyObject) {
+        
+    }
+    
     
     func startTrackingNewMovment() {
         isTracking = true
