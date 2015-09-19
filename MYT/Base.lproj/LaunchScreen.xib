@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -11,8 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MYT" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="202" y="218" width="76.5" height="43"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MYT" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                    <rect key="frame" x="202" y="218" width="77" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.050000000000000003" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -45,8 +45,8 @@
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="USB-OP-G1D"/>
                                     <exclude reference="7Y8-Q9-18b"/>
+                                    <exclude reference="USB-OP-G1D"/>
                                 </mask>
                             </variation>
                         </view>
@@ -67,26 +67,17 @@
                         <constraint firstAttribute="width" constant="320" id="zwt-E8-EEA"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-icon" translatesAutoresizingMaskIntoConstraints="NO" id="xQD-6W-Lge">
-                    <rect key="frame" x="210" y="210" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="ByM-us-WCM"/>
-                        <constraint firstAttribute="height" constant="60" id="aOS-ms-a7R"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.95000000000000007" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
                 <constraint firstAttribute="centerX" secondItem="JNC-Bc-ZaP" secondAttribute="centerX" id="Gnc-Ut-y93"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="centerX" secondItem="xQD-6W-Lge" secondAttribute="centerX" id="VJ7-iY-Kz2"/>
                 <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" id="YCf-D8-6d8"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="ZBU-gv-AuN"/>
                 <constraint firstAttribute="bottom" secondItem="JNC-Bc-ZaP" secondAttribute="bottom" id="a5y-6N-bku"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
                 <constraint firstItem="JNC-Bc-ZaP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="n1I-f2-IGn"/>
-                <constraint firstAttribute="centerY" secondItem="xQD-6W-Lge" secondAttribute="centerY" id="yVu-JA-zKX"/>
                 <constraint firstAttribute="trailing" secondItem="JNC-Bc-ZaP" secondAttribute="trailing" id="ywz-Lh-W03"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -103,7 +94,4 @@
             <point key="canvasLocation" x="365" y="363"/>
         </view>
     </objects>
-    <resources>
-        <image name="launch-icon" width="60" height="60"/>
-    </resources>
 </document>
