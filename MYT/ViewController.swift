@@ -22,6 +22,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     let locationTracker = LocationTracker(threshold:1)
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
+    var timeString:NSString = NSString()
     var startTracikngTime:NSDate = NSDate()
     var timeTrackingTimer:NSTimer = NSTimer()
     
@@ -233,6 +234,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         timeTrackingTimer.invalidate();
         
+        rootGPX.metadata = GPXMetadata();
+        rootGPX.metadata.name = timeString as! String;
+        
         saveGPXToDrive(rootGPX)
     }
     
@@ -246,7 +250,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         var minutes = datecomponenets.minute >= 60 ? 0 : datecomponenets.minute;
         var seconds = datecomponenets.second >= 60 ? 0 : datecomponenets.second;
         
-        let timeString = NSString(format:"%02d:%02d:%02d", hours, minutes, seconds)
+        timeString = NSString(format:"%02d:%02d:%02d", hours, minutes, seconds)
         
         println(timeString)
     }

@@ -39,11 +39,9 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
     }
     
     override func viewDidLoad() {
-        mapViewHistory.layer.cornerRadius = 4.0
-        infoContainerView.layer.cornerRadius = 4.0
         
+        // Data
         var rootFromDrive:GPXRoot = self.readGPXRootFromDrive()
-        
         self.mapViewHistory.delegate = self;
         
         var middlePoint = rootFromDrive.tracks.count/2;
@@ -53,6 +51,22 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
             i++;
             self.plotPlacemarkOnMap(track as! GPXTrack, needToSaveMiddlePoint: middlePoint == i ? true : false)
         }
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        
+        let dateString = _selectedFileName!.stringByDeletingPathExtension
+        let date = formatter.dateFromString(dateString)
+        
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        // Labels
+        infoDateLabel.text = formatter.stringFromDate(date!)
+        infoDurationLabel.text = rootFromDrive.metadata.name;
+        
+        // UI
+        mapViewHistory.layer.cornerRadius = 4.0
+        infoContainerView.layer.cornerRadius = 4.0
         
         // Set Map Zoom
         
