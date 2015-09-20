@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import MessageUI
 
-class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailComposeViewControllerDelegate {
+class HistoryMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapViewHistory: MKMapView!
     @IBOutlet weak var infoContainerView: UIView!
@@ -177,33 +177,26 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate,MFMailCompos
         self.sendLocationImage();
     }
     
-    
-    func sendLocationImage() -> Void {
-        //Create the UIImage
-        UIGraphicsBeginImageContext(self.mapViewHistory.frame.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext())
-        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+    func takeMapSnapshot() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(cardContainer.bounds.size, false, UIScreen.mainScreen().scale)
+        
+        cardContainer.drawViewHierarchyInRect(cardContainer.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        let mailComposer = MFMailComposeViewController()
-        mailComposer.mailComposeDelegate = self
-        
-        let fileData = UIImageJPEGRepresentation(image, 1.0);
-        
-        //Set the subject and message of the email
-        mailComposer.setSubject("Have you heard abut MYT")
-        mailComposer.setMessageBody("Here is your locations!", isHTML: false)
-        
-        mailComposer.addAttachmentData(fileData, mimeType: "image/png", fileName: "LocatonImage.png");
-        self.presentViewController(mailComposer, animated: true, completion: nil)
+        return image
     }
     
-    // ****** Mail Composer Delegates
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func sendLocationImage() -> Void {
+        let image:UIImage = self.takeMapSnapshot();
+        var sharingItems = [AnyObject]()
+        sharingItems.append(image)
+        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        activityViewController.excludedActivityTypes = [UIActivityTypeCopyToPasteboard,UIActivityTypeAirDrop,UIActivityTypeAddToReadingList,UIActivityTypeAssignToContact,UIActivityTypePostToTencentWeibo,UIActivityTypePostToVimeo,UIActivityTypePrint,UIActivityTypeSaveToCameraRoll,UIActivityTypePostToWeibo]
         
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 
 }
