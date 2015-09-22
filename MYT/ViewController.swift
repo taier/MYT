@@ -259,11 +259,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         timeTrackingTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateTimeLabel"), userInfo: nil, repeats: true);
         
         createNewGPXFile();
-        
-        // Resume updates if can
-        if(locationTracker.isPaused) {
-            locationTracker.resumeLocationUpdate();
-        }
+        locationTracker.resumeLocationUpdate();
     }
     
     func stopTrackingNewMovment() {
@@ -278,12 +274,20 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         timeTrackingTimer.invalidate();
         
-        durationLabel.text = "00:00:00";
-        
+        // Save stuff
         rootGPX.metadata = GPXMetadata();
         rootGPX.metadata.name = timeString as! String;
+        rootGPX.metadata.keyword = distanceLabel.text
         
         saveGPXToDrive(rootGPX)
+        
+        lastUserLocation = CLLocation()
+        
+        // Remove stuff
+        durationLabel.text = "00:00:00";
+        distanceLabel.text = "0 meters";
+        totalDistance = 0;
+       
     }
     
     

@@ -66,12 +66,11 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate {
         // Labels
         infoDateLabel.text = formatter.stringFromDate(date!)
         infoDurationLabel.text = rootFromDrive.metadata.name;
+        infoDistanceLabel.text = rootFromDrive.metadata.keyword;
         
         // UI
         cardContainer.layer.cornerRadius = 4.0
         
-//        cardContainer.layer.shadowColor = UIColor.blackColor().CGColor
-//        cardContainer.layer.shadowRadius = 1.0
         
         // Set Map Zoom
         
