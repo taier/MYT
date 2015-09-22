@@ -27,8 +27,10 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     
     
     let locationTracker = LocationTracker(threshold:1)
+    var lastUserLocation:CLLocation = CLLocation()
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
+    var totalDistance:Int = 0
     var timeString:NSString = NSString()
     var startTracikngTime:NSDate = NSDate()
     var timeTrackingTimer:NSTimer = NSTimer()
@@ -100,6 +102,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         ctrpoint.latitude = coordinate.latitude
         ctrpoint.longitude = coordinate.longitude
         
+        
         // Set MapView zoom
         var latDelta:CLLocationDegrees = 0.1
         var longDelta:CLLocationDegrees = 0.1
@@ -118,7 +121,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         if(self.mapView?.annotations.count == 0) {
             self.mapView?.addAnnotation(addAnnotation)
-            locationTracker.pauseLocationUpdate();
             self.mapView?.setRegion(lastUserRegion, animated: true)
             return;
         }
@@ -126,6 +128,27 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         if(!isTracking) {
             return;
         }
+        
+        // Distance
+        var newUserLocation:CLLocation = CLLocation(latitude: ctrpoint.latitude,longitude: ctrpoint.longitude)
+        
+        var meters:CLLocationDistance = newUserLocation.distanceFromLocation(lastUserLocation)
+        var kilometers:CLLocationDistance = meters / 1000.0;
+        
+        if(totalDistance == 0 && Double(meters) < 20) {
+            distanceLabel.text = String(format:"%f meters",Double(meters))
+            let a:Int? = distanceLabel.text?.toInt()
+            
+            let myNumber = NSNumberFormatter().numberFromString(distanceLabel.text!)
+            totalDistance += Int(meters)
+        } else if (totalDistance != 0) {
+            distanceLabel.text = String(format:"%i meters",totalDistance)
+            totalDistance += Int(meters)
+        }
+        
+        
+        lastUserLocation = newUserLocation;
+    
         
         // Save GPX
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
