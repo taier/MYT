@@ -19,7 +19,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     @IBOutlet weak var buttonMenu:UIButton? = UIButton()
     @IBOutlet weak var viewBottom: UIView!
     
-    @IBOutlet var switchMapView: UISwitch!
+    @IBOutlet weak var mapStyleSwitch: UISegmentedControl!
     @IBOutlet weak var mainButtonContainer: UIView!
     @IBOutlet weak var mainButtonTrackContainer: UIView!
     @IBOutlet weak var mainButtonStopContainer: UIView!
@@ -62,6 +62,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         buttonMenu?.clipsToBounds = true;
         
         mainButtonContainer.layer.cornerRadius = cornerRadius
+        
+        mapStyleSwitch.layer.cornerRadius = cornerRadius
         
         locationTracker.addLocationChangeObserver { (result) -> () in
             switch result {
@@ -264,9 +266,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         stopTrackingNewMovment();
     }
     
-    @IBAction func SwitchValueChage(sender: AnyObject) {
+    @IBAction func switchValueChage(sender: AnyObject) {
         
-        if(self.switchMapView.selected) {
+        var segmentControl:UISegmentedControl = sender as! UISegmentedControl
+
+        if(segmentControl.selectedSegmentIndex == 1) {
             self.mapView?.mapType = MKMapType.Hybrid
              NSUserDefaults.standardUserDefaults().setBool(false, forKey: "MAP_VIEW_TYPE_IS_STANDARD")
         } else {
@@ -275,8 +279,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         }
         
         NSUserDefaults.standardUserDefaults().synchronize()
-        
-        self.switchMapView.selected = !self.switchMapView.selected
     }
     
     func startTrackingNewMovment() {
