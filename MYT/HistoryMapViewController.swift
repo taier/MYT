@@ -70,7 +70,8 @@ class HistoryMapViewController: UIViewController, MKMapViewDelegate {
         
         // UI
         cardContainer.layer.cornerRadius = 4.0
-        
+        var isStandartMapView:Bool = NSUserDefaults.standardUserDefaults().boolForKey("MAP_VIEW_TYPE_IS_STANDARD")
+        self.mapViewHistory.mapType = isStandartMapView ? MKMapType.Standard : MKMapType.Hybrid
         
         // Set Map Zoom
         

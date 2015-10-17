@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GSh-4i-fHa">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="GSh-4i-fHa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <animations/>
                                 <constraints>
@@ -238,6 +238,16 @@
                                     <constraint firstAttribute="height" constant="20" id="lxZ-Kt-xDK"/>
                                 </constraints>
                             </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JuV-1R-kYk">
+                                <rect key="frame" x="8" y="28" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="dT4-sx-oYg"/>
+                                    <constraint firstAttribute="width" constant="49" id="vOc-VM-Oj8"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="SwitchValueChage:" destination="vXZ-lx-hvc" eventType="valueChanged" id="MA3-nP-pzV"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -248,7 +258,9 @@
                             <constraint firstAttribute="centerX" secondItem="WsV-El-qk9" secondAttribute="centerX" id="QKB-Zv-nwm"/>
                             <constraint firstItem="GSh-4i-fHa" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="SIo-Wy-hmk"/>
                             <constraint firstAttribute="trailing" secondItem="qCb-ra-4E8" secondAttribute="trailing" id="guf-oP-TxA"/>
+                            <constraint firstItem="JuV-1R-kYk" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="iun-CG-ziO"/>
                             <constraint firstAttribute="bottom" secondItem="GSh-4i-fHa" secondAttribute="bottom" id="jUe-jU-gXD"/>
+                            <constraint firstItem="JuV-1R-kYk" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="8" id="q6l-LT-jNh"/>
                             <constraint firstItem="qCb-ra-4E8" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="vZn-zz-zQ0"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="GSh-4i-fHa" secondAttribute="bottom" id="xZQ-eE-T7h"/>
                             <constraint firstAttribute="trailing" secondItem="GSh-4i-fHa" secondAttribute="trailing" id="ysK-Pe-wh5"/>
@@ -270,6 +282,7 @@
                         <outlet property="mainButtonStopContainer" destination="Yd5-lT-k63" id="cpL-mE-RfK"/>
                         <outlet property="mainButtonTrackContainer" destination="MrX-Aq-TDZ" id="dNC-Ex-L72"/>
                         <outlet property="mapView" destination="GSh-4i-fHa" id="0s9-Br-33f"/>
+                        <outlet property="switchMapView" destination="JuV-1R-kYk" id="FkW-97-GUk"/>
                         <outlet property="viewBottom" destination="WsV-El-qk9" id="gea-as-Ma9"/>
                         <segue destination="fFY-Of-LKq" kind="presentation" identifier="MYT_Segue_DataShowController" id="0Q5-ze-Tvb"/>
                     </connections>
