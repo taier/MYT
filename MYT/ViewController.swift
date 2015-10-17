@@ -55,11 +55,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         let cornerRadius:CGFloat = 5.0
         
         buttonNav?.layer.cornerRadius = cornerRadius
-//        buttonStart?.layer.cornerRadius = cornerRadius
         buttonMenu?.layer.cornerRadius = cornerRadius
         
         buttonNav?.clipsToBounds = true;
-//        buttonStart?.clipsToBounds = true;
         buttonMenu?.clipsToBounds = true;
         
         mainButtonContainer.layer.cornerRadius = cornerRadius
@@ -108,8 +106,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         var longDelta:CLLocationDegrees = 0.1
         var theSpan:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
         
-        var latitudinalMeters = 100.0
-        var longitudinalMeters = 100.0
+        var latitudinalMeters = 300.0
+        var longitudinalMeters = 300.0
         lastUserRegion = MKCoordinateRegionMakeWithDistance(ctrpoint, latitudinalMeters, longitudinalMeters)
        
         
@@ -117,13 +115,15 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         var addAnnotation:MKPointAnnotation = MKPointAnnotation()
         addAnnotation.coordinate = ctrpoint
         
-        // Just showing start position, don't do anything with it yet
-        
-        if(self.mapView?.annotations.count == 0) {
-            self.mapView?.addAnnotation(addAnnotation)
-            self.mapView?.setRegion(lastUserRegion, animated: true)
-            return;
+        // Remove all point
+        if(self.mapView?.annotations.count > 0) {
+            self.mapView?.removeAnnotations(self.mapView?.annotations)
         }
+        
+        // Add new Annotation
+        self.mapView?.addAnnotation(addAnnotation)
+        self.mapView?.setRegion(lastUserRegion, animated: true)
+    
         
         if(!isTracking) {
             return;
@@ -160,6 +160,28 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         self.drawLineOnMap()
     }
     
+    // Custom annotation
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("customAnnotation")
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+            annotationView!.canShowCallout = true
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        annotationView!.image = UIImage(named: "MapAnnotation")
+        
+        return annotationView
+        
+    }
     
     func drawLineOnMap() {
         // Remove old polyline if one exists
@@ -231,12 +253,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     // Tracking stuff
     @IBAction func trackButtonPress(sender: AnyObject) {
         if (isTracking) {
-             // Stop tracking
-//            sender.setTitle("Track", forState: UIControlState.Normal)
             stopTrackingNewMovment()
         } else {
-            // Start tracking
-//            sender.setTitle("Stop", forState: UIControlState.Normal)
             startTrackingNewMovment()
         }
     }
@@ -268,10 +286,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         mainButtonTrackContainer.hidden = false;
         mainButtonStopContainer.hidden = true;
-        
-        locationTracker.pauseLocationUpdate()
-        self.mapView?.removeAnnotations(self.mapView?.annotations)
-        
         timeTrackingTimer.invalidate();
         
         // Save stuff
@@ -289,7 +303,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         totalDistance = 0;
        
     }
-    
     
     func updateTimeLabel() {
         
