@@ -13,7 +13,7 @@ import iAd
 class DataShowController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, ADBannerViewDelegate {
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
-    
+    @IBOutlet weak var mainTableView: UITableView!
     @IBOutlet weak var iadBanner: ADBannerView!
     var arrayData = NSMutableArray()
     var _selectedFileName: String?
@@ -46,6 +46,13 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         self.setupiAd()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let indexPath = self.mainTableView.indexPathForSelectedRow()
+        if (indexPath != nil) {
+            self.mainTableView.deselectRowAtIndexPath(indexPath!, animated: false)
+        }
+    }
     
     //Alert handlers
     
@@ -100,7 +107,7 @@ class DataShowController: UIViewController, UITableViewDelegate, UITableViewData
         
         let enumerator:NSDirectoryEnumerator = NSFileManager.defaultManager().enumeratorAtPath(fileurl.path!)!
         
-        for dataEntity in enumerator.allObjects {
+        for dataEntity in enumerator.allObjects.reverse() {
             arrayData.addObject(dataEntity as! String)
         }
     }
