@@ -26,7 +26,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     @IBOutlet weak var distanceLabel: UILabel!
     
     
-    let locationTracker = LocationTracker(threshold:1)
+    let locationTracker = LocationTracker(threshold:3)
     var lastUserLocation:CLLocation = CLLocation()
     var rootGPX = GPXRoot(creator: "Sample GPX")
     var isTracking = false
@@ -86,7 +86,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         visualEffectView.clipsToBounds = viewToBlurr.clipsToBounds;
         
         viewBottom.insertSubview(visualEffectView, belowSubview: viewToBlurr)
-        
     }
     
     func updateUserLocationVisually(newLocation: LocationTracker.Location) -> Void {
@@ -131,24 +130,25 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         // Distance
         var newUserLocation:CLLocation = CLLocation(latitude: ctrpoint.latitude,longitude: ctrpoint.longitude)
-        
         var meters:CLLocationDistance = newUserLocation.distanceFromLocation(lastUserLocation)
         var kilometers:CLLocationDistance = meters / 1000.0;
+        
+        lastUserLocation = newUserLocation;
+        
+        // Distance filter
+        if(Double(meters) >= 25) {
+            return;
+        }
         
         if(totalDistance == 0 && Double(meters) < 20) {
             distanceLabel.text = String(format:"%f meters",Double(meters))
             let a:Int? = distanceLabel.text?.toInt()
-            
             let myNumber = NSNumberFormatter().numberFromString(distanceLabel.text!)
             totalDistance += Int(meters)
         } else if (totalDistance != 0) {
             distanceLabel.text = String(format:"%i meters",totalDistance)
             totalDistance += Int(meters)
         }
-        
-        
-        lastUserLocation = newUserLocation;
-    
         
         // Save GPX
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
