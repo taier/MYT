@@ -47,10 +47,11 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.mapView?.delegate = self
         
         let cornerRadius:CGFloat = 5.0
@@ -139,19 +140,22 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         lastUserLocation = newUserLocation;
         
         // Distance filter
-        if(Double(meters) >= 25) {
+        if(Double(meters) >= 100) {
             return;
         }
         
-        if(totalDistance == 0 && Double(meters) < 20) {
-            distanceLabel.text = String(format:"%f meters",Double(meters))
-            let a:Int? = distanceLabel.text?.toInt()
-            let myNumber = NSNumberFormatter().numberFromString(distanceLabel.text!)
-            totalDistance += Int(meters)
-        } else if (totalDistance != 0) {
-            distanceLabel.text = String(format:"%i meters",totalDistance)
-            totalDistance += Int(meters)
-        }
+        totalDistance += Int(meters)
+        distanceLabel.text = convertMetersToKMString(totalDistance)
+        
+//        if(totalDistance == 0) {
+//            distanceLabel.text = String(format:"%.f meters",Double(meters))
+//            let a:Int? = distanceLabel.text?.toInt()
+//            let myNumber = NSNumberFormatter().numberFromString(distanceLabel.text!)
+//            totalDistance += Int(meters)
+//        } else if (totalDistance != 0) {
+//            totalDistance += Int(meters)
+//            distanceLabel.text = String(format:"%i meters",totalDistance)
+//        }
         
         // Save GPX
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
@@ -161,6 +165,19 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         //Draw Line
         self.drawLineOnMap()
+    }
+    
+    func convertMetersToKMString(meters: Int) -> String  {
+        
+        var returnString:String = "";
+        
+        if (meters > 1000) {
+            returnString = String(format:"%i km %i meters",meters/1000, meters%1000)
+        } else {
+            returnString = String(format:"%i meters", meters)
+        }
+        
+        return returnString;
     }
     
     // Custom annotation

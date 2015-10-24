@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913483BC4D56A5F37EF57F98 /* libPods-MYT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D10F13BEDD3E07CE3694865B /* libPods-MYT.a */; };
 		976DB9F71B38438D00811937 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F51B38438D00811937 /* GPXExtentCoordinates.swift */; };
 		976DB9F81B38438D00811937 /* GPXMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F61B38438D00811937 /* GPXMapView.swift */; };
 		976DBA001B3843BC00811937 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F91B3843BC00811937 /* GPXFileManager.swift */; };
@@ -17,7 +18,11 @@
 		976DBA051B3843BC00811937 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */; };
 		976DBA061B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */; };
 		976DBA081B3844A700811937 /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DBA071B3844A700811937 /* HistoryMapViewController.swift */; };
+		97B495081BDB821A006D900B /* Toronto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97B495071BDB821A006D900B /* Toronto.jpg */; };
+		97B4950D1BDB857E006D900B /* MYCustomPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B4950B1BDB857E006D900B /* MYCustomPanel.m */; };
+		97B4950E1BDB857E006D900B /* MYCustomPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97B4950C1BDB857E006D900B /* MYCustomPanel.xib */; };
 		97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */; };
+		97ECE57C1BDB7E23006627FF /* IntrodcutonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97ECE57B1BDB7E23006627FF /* IntrodcutonViewController.m */; };
 		B7034BF51B93382D003711D1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */; };
 		B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F539F1B1E4B10006223A9 /* AppDelegate.swift */; };
 		B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53A11B1E4B10006223A9 /* ViewController.swift */; };
@@ -74,7 +79,13 @@
 		976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXTrackSegment+MapKit.swift"; path = "Libs/GPX View/GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXWaypoint+MKAnnotation.swift"; path = "Libs/GPX View/GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		976DBA071B3844A700811937 /* HistoryMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
+		97B495071BDB821A006D900B /* Toronto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Toronto.jpg; sourceTree = "<group>"; };
+		97B4950A1BDB857E006D900B /* MYCustomPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYCustomPanel.h; sourceTree = "<group>"; };
+		97B4950B1BDB857E006D900B /* MYCustomPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYCustomPanel.m; sourceTree = "<group>"; };
+		97B4950C1BDB857E006D900B /* MYCustomPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYCustomPanel.xib; sourceTree = "<group>"; };
 		97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShowController.swift; sourceTree = "<group>"; };
+		97ECE57A1BDB7E23006627FF /* IntrodcutonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrodcutonViewController.h; sourceTree = "<group>"; };
+		97ECE57B1BDB7E23006627FF /* IntrodcutonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrodcutonViewController.m; sourceTree = "<group>"; };
 		B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B71F539A1B1E4B10006223A9 /* MYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F539E1B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +148,9 @@
 		B7ADE3711B1E549100AAE842 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Libs/LocationManager.swift; sourceTree = "<group>"; };
 		B7ADE3741B1E558000AAE842 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B7ADE3761B217B7F00AAE842 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTracker.swift; path = Libs/LocationTracker.swift; sourceTree = "<group>"; };
+		C4FD4AED37EE0C114F656258 /* Pods-MYT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYT.release.xcconfig"; path = "Pods/Target Support Files/Pods-MYT/Pods-MYT.release.xcconfig"; sourceTree = "<group>"; };
+		D10F13BEDD3E07CE3694865B /* libPods-MYT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F673735C02979280A7040D71 /* Pods-MYT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MYT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MYT/Pods-MYT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7ADE3751B1E558000AAE842 /* MapKit.framework in Frameworks */,
+				913483BC4D56A5F37EF57F98 /* libPods-MYT.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +173,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05A698B7A1C00E2ACAC5C601 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D10F13BEDD3E07CE3694865B /* libPods-MYT.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		710423E0D94FE1B9AC079185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F673735C02979280A7040D71 /* Pods-MYT.debug.xcconfig */,
+				C4FD4AED37EE0C114F656258 /* Pods-MYT.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		97B495061BDB821A006D900B /* Introduction Images */ = {
+			isa = PBXGroup;
+			children = (
+				97B495071BDB821A006D900B /* Toronto.jpg */,
+			);
+			path = "Introduction Images";
+			sourceTree = "<group>";
+		};
+		97B495091BDB857E006D900B /* Notification Screen */ = {
+			isa = PBXGroup;
+			children = (
+				97B4950A1BDB857E006D900B /* MYCustomPanel.h */,
+				97B4950B1BDB857E006D900B /* MYCustomPanel.m */,
+				97B4950C1BDB857E006D900B /* MYCustomPanel.xib */,
+			);
+			path = "Notification Screen";
+			sourceTree = "<group>";
+		};
 		97C9E5BE1B380C5F00D5AF0A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +234,8 @@
 				B71F539C1B1E4B10006223A9 /* MYT */,
 				B71F53B21B1E4B10006223A9 /* MYTTests */,
 				B71F539B1B1E4B10006223A9 /* Products */,
+				710423E0D94FE1B9AC079185 /* Pods */,
+				05A698B7A1C00E2ACAC5C601 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,9 +251,12 @@
 		B71F539C1B1E4B10006223A9 /* MYT */ = {
 			isa = PBXGroup;
 			children = (
+				97B495091BDB857E006D900B /* Notification Screen */,
 				97C9E5BE1B380C5F00D5AF0A /* Controllers */,
 				B7ADE3731B1E549700AAE842 /* Libs */,
 				B71F53A31B1E4B10006223A9 /* Main.storyboard */,
+				97ECE57A1BDB7E23006627FF /* IntrodcutonViewController.h */,
+				97ECE57B1BDB7E23006627FF /* IntrodcutonViewController.m */,
 				B71F539D1B1E4B10006223A9 /* Supporting Files */,
 			);
 			path = MYT;
@@ -210,6 +265,7 @@
 		B71F539D1B1E4B10006223A9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				97B495061BDB821A006D900B /* Introduction Images */,
 				B71F53A81B1E4B10006223A9 /* LaunchScreen.xib */,
 				B71F53A61B1E4B10006223A9 /* Images.xcassets */,
 				B71F539F1B1E4B10006223A9 /* AppDelegate.swift */,
@@ -308,9 +364,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B71F53B91B1E4B10006223A9 /* Build configuration list for PBXNativeTarget "MYT" */;
 			buildPhases = (
+				89F2B45B4060E95CD753A8F5 /* Check Pods Manifest.lock */,
 				B71F53961B1E4B10006223A9 /* Sources */,
 				B71F53971B1E4B10006223A9 /* Frameworks */,
 				B71F53981B1E4B10006223A9 /* Resources */,
+				A529B10191EB022B912A4B60 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,6 +449,8 @@
 				B71F53A51B1E4B10006223A9 /* Main.storyboard in Resources */,
 				B71F53AA1B1E4B10006223A9 /* LaunchScreen.xib in Resources */,
 				B71F53A71B1E4B10006223A9 /* Images.xcassets in Resources */,
+				97B4950E1BDB857E006D900B /* MYCustomPanel.xib in Resources */,
+				97B495081BDB821A006D900B /* Toronto.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +463,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89F2B45B4060E95CD753A8F5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A529B10191EB022B912A4B60 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MYT/Pods-MYT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B71F53961B1E4B10006223A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -412,6 +505,7 @@
 				B79202751B28133C00F2D7BA /* GPXBounds.m in Sources */,
 				B7A332EE1B65769700553036 /* CoordinatesObjest.swift in Sources */,
 				B79202781B28133C00F2D7BA /* GPXElement.m in Sources */,
+				97B4950D1BDB857E006D900B /* MYCustomPanel.m in Sources */,
 				B79202891B28133C00F2D7BA /* TBXML.m in Sources */,
 				976DB9F81B38438D00811937 /* GPXMapView.swift in Sources */,
 				B79202821B28133C00F2D7BA /* GPXRoute.m in Sources */,
@@ -438,6 +532,7 @@
 				976DBA061B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift in Sources */,
 				976DBA011B3843BC00811937 /* GPXFilesTableViewController.swift in Sources */,
 				B792027E1B28133C00F2D7BA /* GPXPerson.m in Sources */,
+				97ECE57C1BDB7E23006627FF /* IntrodcutonViewController.m in Sources */,
 				976DBA081B3844A700811937 /* HistoryMapViewController.swift in Sources */,
 				B79202791B28133C00F2D7BA /* GPXEmail.m in Sources */,
 				B7ADE3721B1E549100AAE842 /* LocationManager.swift in Sources */,
@@ -571,6 +666,7 @@
 		};
 		B71F53BA1B1E4B10006223A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F673735C02979280A7040D71 /* Pods-MYT.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -590,7 +686,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eb1ddfce-be50-4551-be99-06e8c8b6836e";
+				PROVISIONING_PROFILE = "45d220ee-237b-4038-8026-b918b9ea141a";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -600,6 +696,7 @@
 		};
 		B71F53BB1B1E4B10006223A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4FD4AED37EE0C114F656258 /* Pods-MYT.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -619,7 +716,7 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eb1ddfce-be50-4551-be99-06e8c8b6836e";
+				PROVISIONING_PROFILE = "45d220ee-237b-4038-8026-b918b9ea141a";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "MYT/Libs/GPX/MYT-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";

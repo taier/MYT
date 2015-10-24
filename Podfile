@@ -3,7 +3,7 @@
 
 target 'MYT' do
 
-pod 'MapManager', '~> 1.0'
+pod 'MYBlurIntroductionView'
 
 end
 
