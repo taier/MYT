@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		913483BC4D56A5F37EF57F98 /* libPods-MYT.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D10F13BEDD3E07CE3694865B /* libPods-MYT.a */; };
+		970089661BE4DCB900202D60 /* ViewScreenCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 970089641BE4DCB900202D60 /* ViewScreenCollectionCell.m */; };
 		976DB9F71B38438D00811937 /* GPXExtentCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F51B38438D00811937 /* GPXExtentCoordinates.swift */; };
 		976DB9F81B38438D00811937 /* GPXMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F61B38438D00811937 /* GPXMapView.swift */; };
 		976DBA001B3843BC00811937 /* GPXFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9F91B3843BC00811937 /* GPXFileManager.swift */; };
@@ -69,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		970089631BE4DCB900202D60 /* ViewScreenCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewScreenCollectionCell.h; path = IntroductionScreens/ViewScreenCollectionCell.h; sourceTree = "<group>"; };
+		970089641BE4DCB900202D60 /* ViewScreenCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewScreenCollectionCell.m; path = IntroductionScreens/ViewScreenCollectionCell.m; sourceTree = "<group>"; };
 		976DB9F51B38438D00811937 /* GPXExtentCoordinates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXExtentCoordinates.swift; path = "Libs/GPX View/GPXExtentCoordinates.swift"; sourceTree = "<group>"; };
 		976DB9F61B38438D00811937 /* GPXMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXMapView.swift; path = "Libs/GPX View/GPXMapView.swift"; sourceTree = "<group>"; };
 		976DB9F91B3843BC00811937 /* GPXFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GPXFileManager.swift; path = "Libs/GPX View/GPXFileManager.swift"; sourceTree = "<group>"; };
@@ -258,6 +261,8 @@
 				97ECE57A1BDB7E23006627FF /* IntrodcutonViewController.h */,
 				97ECE57B1BDB7E23006627FF /* IntrodcutonViewController.m */,
 				B71F539D1B1E4B10006223A9 /* Supporting Files */,
+				970089631BE4DCB900202D60 /* ViewScreenCollectionCell.h */,
+				970089641BE4DCB900202D60 /* ViewScreenCollectionCell.m */,
 			);
 			path = MYT;
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				B79202831B28133C00F2D7BA /* GPXRoutePoint.m in Sources */,
 				B79202741B28133C00F2D7BA /* GPXAuthor.m in Sources */,
 				B79202801B28133C00F2D7BA /* GPXPointSegment.m in Sources */,
+				970089661BE4DCB900202D60 /* ViewScreenCollectionCell.m in Sources */,
 				B792027F1B28133C00F2D7BA /* GPXPoint.m in Sources */,
 				B79202761B28133C00F2D7BA /* GPXConst.m in Sources */,
 				B79202811B28133C00F2D7BA /* GPXRoot.m in Sources */,

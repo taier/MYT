@@ -17,10 +17,159 @@
                     <view key="view" contentMode="scaleToFill" id="fbh-Hq-Ccz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gaL-Ve-Egi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="TSW-KS-ftw"/>
+                                    <constraint firstAttribute="height" constant="420" id="o3f-tL-Ps7"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RUT-Wx-9pd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView1" id="Hch-R7-kaT" userLabel="CellView1" customClass="ViewScreenCollectionCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="339"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-uH-ZsE">
+                                                    <rect key="frame" x="133" y="153" width="54" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="CnW-wc-hLH"/>
+                                                        <constraint firstAttribute="width" constant="54" id="XGe-PE-OqD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="Lts-uH-ZsE" secondAttribute="centerX" id="Mwp-yC-kSU"/>
+                                            <constraint firstAttribute="centerY" secondItem="Lts-uH-ZsE" secondAttribute="centerY" id="oER-oM-c66"/>
+                                        </constraints>
+                                        <size key="customSize" width="320" height="339"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView2" id="ysb-ex-KVU" userLabel="CellView2" customClass="ViewScreenCollectionCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1G9-jF-3dQ">
+                                                    <rect key="frame" x="133" y="193" width="54" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="Hhv-A8-FKZ"/>
+                                                        <constraint firstAttribute="width" constant="54" id="asm-l8-BeY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="1G9-jF-3dQ" secondAttribute="centerX" id="QRc-MN-4bY"/>
+                                            <constraint firstAttribute="centerY" secondItem="1G9-jF-3dQ" secondAttribute="centerY" id="rUQ-4U-LOH"/>
+                                        </constraints>
+                                        <size key="customSize" width="320" height="420"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView3" id="3u6-M6-stY" customClass="ViewScreenCollectionCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suB-xC-QDp">
+                                                    <rect key="frame" x="135" y="199" width="51" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="VV3-ZJ-17a"/>
+                                                        <constraint firstAttribute="height" constant="21" id="WlU-On-Ab6"/>
+                                                        <constraint firstAttribute="width" constant="51" id="df4-5j-gyG"/>
+                                                        <constraint firstAttribute="width" constant="51" id="eTD-qZ-GZV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="VV3-ZJ-17a"/>
+                                                            <exclude reference="eTD-qZ-GZV"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerX" secondItem="suB-xC-QDp" secondAttribute="centerX" constant="-4.5" id="Igl-gr-rOn"/>
+                                            <constraint firstAttribute="centerX" secondItem="suB-xC-QDp" secondAttribute="centerX" id="JBi-GH-FEb"/>
+                                            <constraint firstAttribute="centerY" secondItem="suB-xC-QDp" secondAttribute="centerY" id="MgO-ab-47F"/>
+                                            <constraint firstAttribute="centerY" secondItem="suB-xC-QDp" secondAttribute="centerY" id="ayk-Nb-uJT"/>
+                                        </constraints>
+                                        <size key="customSize" width="320" height="420"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Igl-gr-rOn"/>
+                                                <exclude reference="MgO-ab-47F"/>
+                                            </mask>
+                                        </variation>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView4" id="BNQ-Mx-9mM" customClass="ViewScreenCollectionCell">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD7-Zo-ZDW">
+                                                    <rect key="frame" x="135" y="199" width="51" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="5vF-BD-w8O"/>
+                                                        <constraint firstAttribute="width" constant="51" id="Nag-K7-pEh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerY" secondItem="tD7-Zo-ZDW" secondAttribute="centerY" id="4hv-IM-RO8"/>
+                                            <constraint firstAttribute="centerX" secondItem="tD7-Zo-ZDW" secondAttribute="centerX" id="S6Y-4r-m6j"/>
+                                        </constraints>
+                                        <size key="customSize" width="320" height="420"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wAe-RE-nWi" id="1ru-iG-Qwg"/>
+                                    <outlet property="delegate" destination="wAe-RE-nWi" id="Cdb-jR-0rU"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DnL-oq-WDw" firstAttribute="top" secondItem="gaL-Ve-Egi" secondAttribute="bottom" constant="60" id="DBz-v9-ZEa"/>
+                            <constraint firstItem="gaL-Ve-Egi" firstAttribute="leading" secondItem="fbh-Hq-Ccz" secondAttribute="leading" id="Lvf-BE-bZD"/>
+                            <constraint firstAttribute="trailing" secondItem="gaL-Ve-Egi" secondAttribute="trailing" id="ZKI-PR-Piw"/>
+                            <constraint firstItem="gaL-Ve-Egi" firstAttribute="top" secondItem="fbh-Hq-Ccz" secondAttribute="top" id="cvj-wY-zLQ"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="collectionViewMain" destination="gaL-Ve-Egi" id="20A-jz-YzH"/>
                         <segue destination="vXZ-lx-hvc" kind="show" identifier="MAIN_SCREEN_SEGUE" id="ygc-fe-pWQ"/>
                     </connections>
                 </viewController>

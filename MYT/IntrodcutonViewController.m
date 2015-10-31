@@ -8,10 +8,13 @@
 
 #import "IntrodcutonViewController.h"
 #import "MYBlurIntroductionView.h"
+#import "ViewScreenCollectionCell.h"
 #import "MYCustomPanel.h"
 
 
-@interface IntrodcutonViewController () <MYIntroductionDelegate, MYCustomPanelDelegate>
+@interface IntrodcutonViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionViewMain;
 
 @property bool didPresent;
 
@@ -27,11 +30,11 @@
     
     [super viewDidLayoutSubviews];
     
-    if([self needToShowTutorial]) {
-        return;
-    }
-    
-    [self moveToNextScreen];
+//    if([self needToShowTutorial]) {
+//        return;
+//    }
+//    
+//    [self moveToNextScreen];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,9 +46,9 @@
     
      _didPresent = false;
     
-    if([self needToShowTutorial]) {
+//    if([self needToShowTutorial]) {
         [self initIntroduction];
-    } 
+//    } 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,28 +56,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Collection View Data Source
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 4;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ViewScreenCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[NSString stringWithFormat:@"cellView%li",indexPath.item + 1] forIndexPath:indexPath];
+    
+    return  cell;
+}
+
+#pragma mark Collection View Layout Delegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.collectionViewMain.frame.size;
+}
+
+
 - (void)initIntroduction {
     
-    MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithFrame:self.view.frame title:@"Hello" description:@"Asesome App 1"];
+//    // Register stuff
+//    for (int i = 1; i < 5 ; i++) {
+//        [self.collectionViewMain registerClass:[ViewScreenCollectionCell class] forCellWithReuseIdentifier:[NSString stringWithFormat:@"cellView%i",i]];
+//    }
     
-    MYIntroductionPanel *panel2 = [[MYIntroductionPanel alloc] initWithFrame:self.view.frame title:@"Hello" description:@"Asesome App 2"];
-    
-    MYCustomPanel *panel3 = [[MYCustomPanel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) nibNamed:@"MYCustomPanel"];
-    
-    panel3.delegate = self;
-    
-    //Create the introduction view and set its delegate
-    MYBlurIntroductionView *introductionView = [[MYBlurIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    introductionView.delegate = self;
-    introductionView.BackgroundImageView.image = [UIImage imageNamed:@"Toronto.jpg"];
-    
-    //Add panels to an array
-    NSArray *panels = @[panel1, panel2, panel3];
-    
-    //Build the introduction with desired panels
-    [introductionView buildIntroductionWithPanels:panels];
-    
-    [self.view addSubview:introductionView];
 }
 
 - (BOOL)needToShowTutorial {
@@ -99,14 +108,5 @@
     _didPresent = true;
 }
 
-// Introduction Screen delegate
-
-- (void)didFinishTutorial{
-    [self moveToNextScreen];
-}
-
--(void)introduction:(MYBlurIntroductionView *)introductionView didFinishWithType:(MYFinishType)finishType {
-    [self moveToNextScreen];
-}
 
 @end
