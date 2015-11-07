@@ -1,10 +1,1 @@
-PODS:
-  - MYBlurIntroductionView (1.0.3)
-
-DEPENDENCIES:
-  - MYBlurIntroductionView
-
-SPEC CHECKSUMS:
-  MYBlurIntroductionView: b12651c25574580472ff34989a4c5b81c157009f
-
 COCOAPODS: 0.37.2

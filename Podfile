@@ -3,8 +3,6 @@
 
 target 'MYT' do
 
-pod 'MYBlurIntroductionView'
-
 end
 
 target 'MYTTests' do

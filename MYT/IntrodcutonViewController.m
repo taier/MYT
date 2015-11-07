@@ -7,9 +7,7 @@
 //
 
 #import "IntrodcutonViewController.h"
-#import "MYBlurIntroductionView.h"
 #import "ViewScreenCollectionCell.h"
-#import "MYCustomPanel.h"
 
 
 @interface IntrodcutonViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>

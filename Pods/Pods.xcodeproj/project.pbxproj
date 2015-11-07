@@ -6,271 +6,68 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		287451C191C9ABDD25373E9A /* Pods-MYT-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAB53ECE953FD1F3228903A /* Pods-MYT-dummy.m */; };
-		42027A8F6C58807A55CD1709 /* Pods-MYT-MYBlurIntroductionView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6F9FA05A41741FF8158E6C /* Pods-MYT-MYBlurIntroductionView-dummy.m */; };
-		765FDBEA516D7262C6B74675 /* MYBlurIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE04F382FCC570AFB19B5C8 /* MYBlurIntroductionView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		92D92BDB20325AF3B4D83D2F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740FA7933D1F3D3374CEE071 /* QuartzCore.framework */; };
-		CCACC8200A710CDA7D477309 /* MYIntroductionPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = 73A4FF274EF372B2678A9FDE /* MYIntroductionPanel.h */; };
-		DA7B40CE08A1250C66BDA2AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A4A5E6F3BA5729B8D290FE /* Foundation.framework */; };
-		DB8353C793D6B57F38606C9B /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199AFFFEEDBB91F3EAD0E8A /* MYIntroductionPanel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E0FD97A28253FE0D0CB5CBAA /* MYBlurIntroductionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BEF8B003E6D87AEA5475F15 /* MYBlurIntroductionView.h */; };
-		F940CC477C9472844B40DCC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A4A5E6F3BA5729B8D290FE /* Foundation.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		581FAEA2C6F05417ED6F87AD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A00E98448C508268BDCFBF1B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D3CBFE6E7D42D0DF629C8E20;
-			remoteInfo = "Pods-MYT-MYBlurIntroductionView";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0087A3D73EAAFB7EA5A8A645 /* Pods-MYT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MYT.release.xcconfig"; sourceTree = "<group>"; };
-		1591EFED8D91E838CA9FB02B /* Pods-MYT-MYBlurIntroductionView-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MYT-MYBlurIntroductionView-Private.xcconfig"; sourceTree = "<group>"; };
-		3199AFFFEEDBB91F3EAD0E8A /* MYIntroductionPanel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MYIntroductionPanel.m; path = MYBlurIntroductionView/MYIntroductionPanel.m; sourceTree = "<group>"; };
-		47B6AC65ECFC856E195C2403 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4C504F7620B3256CAE060AC6 /* Pods-MYT-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MYT-resources.sh"; sourceTree = "<group>"; };
-		6BEF8B003E6D87AEA5475F15 /* MYBlurIntroductionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MYBlurIntroductionView.h; path = MYBlurIntroductionView/MYBlurIntroductionView.h; sourceTree = "<group>"; };
-		70C5E1A0AA1BAC6ECE566752 /* Pods-MYT-MYBlurIntroductionView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MYT-MYBlurIntroductionView-prefix.pch"; sourceTree = "<group>"; };
-		73A4FF274EF372B2678A9FDE /* MYIntroductionPanel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MYIntroductionPanel.h; path = MYBlurIntroductionView/MYIntroductionPanel.h; sourceTree = "<group>"; };
-		740FA7933D1F3D3374CEE071 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		8C6A8F76338AFBA68ED2A006 /* libPods-MYT-MYBlurIntroductionView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYT-MYBlurIntroductionView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AE04F382FCC570AFB19B5C8 /* MYBlurIntroductionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MYBlurIntroductionView.m; path = MYBlurIntroductionView/MYBlurIntroductionView.m; sourceTree = "<group>"; };
-		AE49E22BA912A612C0E069A3 /* libPods-MYT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MYT.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB6F9FA05A41741FF8158E6C /* Pods-MYT-MYBlurIntroductionView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MYT-MYBlurIntroductionView-dummy.m"; sourceTree = "<group>"; };
-		BFAB53ECE953FD1F3228903A /* Pods-MYT-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MYT-dummy.m"; sourceTree = "<group>"; };
-		C21A9246F08E18F26382212C /* Pods-MYT-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MYT-environment.h"; sourceTree = "<group>"; };
-		C9E3EC49B6F1C099E2930F41 /* Pods-MYT-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MYT-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D1A4A5E6F3BA5729B8D290FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D2331463A42A78F5455742A7 /* Pods-MYT-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MYT-acknowledgements.plist"; sourceTree = "<group>"; };
-		D3BE7EEC78381E9535275858 /* Pods-MYT-MYBlurIntroductionView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MYT-MYBlurIntroductionView.xcconfig"; sourceTree = "<group>"; };
-		EC4063A119D0DDC6FCC59862 /* Pods-MYT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MYT.debug.xcconfig"; sourceTree = "<group>"; };
+		CD31B694DD76701C85B99CE5 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		ABD0FF222C0AA9E2739D5907 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA7B40CE08A1250C66BDA2AE /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5110358797A30EE42FFFB61 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F940CC477C9472844B40DCC8 /* Foundation.framework in Frameworks */,
-				92D92BDB20325AF3B4D83D2F /* QuartzCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		378E3A0C5AC6863C3991C8BB /* Frameworks */ = {
+		0910DAFFE34ABC6610D7A0B9 = {
 			isa = PBXGroup;
 			children = (
-				A353A16EDA9C4CF41C1BD93B /* iOS */,
+				CD31B694DD76701C85B99CE5 /* Podfile */,
+				5F55D313F678F2043258BA9D /* Frameworks */,
+				8DF8F5A6F3157B1BECB82492 /* Products */,
+				208E94F6B9A6928A36AD60CE /* Targets Support Files */,
 			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		626E05D9BA5B41A5EF3453D0 /* Targets Support Files */ = {
+		208E94F6B9A6928A36AD60CE /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF91A8C118E2A05F656E03B8 /* Pods-MYT */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7DE20708D83CCF3973C4AADF /* Support Files */ = {
+		5F55D313F678F2043258BA9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3BE7EEC78381E9535275858 /* Pods-MYT-MYBlurIntroductionView.xcconfig */,
-				1591EFED8D91E838CA9FB02B /* Pods-MYT-MYBlurIntroductionView-Private.xcconfig */,
-				BB6F9FA05A41741FF8158E6C /* Pods-MYT-MYBlurIntroductionView-dummy.m */,
-				70C5E1A0AA1BAC6ECE566752 /* Pods-MYT-MYBlurIntroductionView-prefix.pch */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-MYT-MYBlurIntroductionView";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8B50343550694AC911A02C75 /* Products */ = {
+		8DF8F5A6F3157B1BECB82492 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE49E22BA912A612C0E069A3 /* libPods-MYT.a */,
-				8C6A8F76338AFBA68ED2A006 /* libPods-MYT-MYBlurIntroductionView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A353A16EDA9C4CF41C1BD93B /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				D1A4A5E6F3BA5729B8D290FE /* Foundation.framework */,
-				740FA7933D1F3D3374CEE071 /* QuartzCore.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		ABBB1CD6302A2033FC8E5516 /* MYBlurIntroductionView */ = {
-			isa = PBXGroup;
-			children = (
-				6BEF8B003E6D87AEA5475F15 /* MYBlurIntroductionView.h */,
-				9AE04F382FCC570AFB19B5C8 /* MYBlurIntroductionView.m */,
-				73A4FF274EF372B2678A9FDE /* MYIntroductionPanel.h */,
-				3199AFFFEEDBB91F3EAD0E8A /* MYIntroductionPanel.m */,
-				7DE20708D83CCF3973C4AADF /* Support Files */,
-			);
-			path = MYBlurIntroductionView;
-			sourceTree = "<group>";
-		};
-		BF91A8C118E2A05F656E03B8 /* Pods-MYT */ = {
-			isa = PBXGroup;
-			children = (
-				C9E3EC49B6F1C099E2930F41 /* Pods-MYT-acknowledgements.markdown */,
-				D2331463A42A78F5455742A7 /* Pods-MYT-acknowledgements.plist */,
-				BFAB53ECE953FD1F3228903A /* Pods-MYT-dummy.m */,
-				C21A9246F08E18F26382212C /* Pods-MYT-environment.h */,
-				4C504F7620B3256CAE060AC6 /* Pods-MYT-resources.sh */,
-				EC4063A119D0DDC6FCC59862 /* Pods-MYT.debug.xcconfig */,
-				0087A3D73EAAFB7EA5A8A645 /* Pods-MYT.release.xcconfig */,
-			);
-			name = "Pods-MYT";
-			path = "Target Support Files/Pods-MYT";
-			sourceTree = "<group>";
-		};
-		CC631AA186E13BBFAD2FE044 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				ABBB1CD6302A2033FC8E5516 /* MYBlurIntroductionView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		FAF037399BE2ED76A5DD4725 = {
-			isa = PBXGroup;
-			children = (
-				47B6AC65ECFC856E195C2403 /* Podfile */,
-				378E3A0C5AC6863C3991C8BB /* Frameworks */,
-				CC631AA186E13BBFAD2FE044 /* Pods */,
-				8B50343550694AC911A02C75 /* Products */,
-				626E05D9BA5B41A5EF3453D0 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		A76D725D442292FF4D59157B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0FD97A28253FE0D0CB5CBAA /* MYBlurIntroductionView.h in Headers */,
-				CCACC8200A710CDA7D477309 /* MYIntroductionPanel.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		8C5FCB6DBE8A3FCCAA6CE5D8 /* Pods-MYT */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E95907FB2885D8E49E60DC93 /* Build configuration list for PBXNativeTarget "Pods-MYT" */;
-			buildPhases = (
-				DB8CBD25B2A689562252BFAF /* Sources */,
-				ABD0FF222C0AA9E2739D5907 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D26630F90210A4B1F779E85D /* PBXTargetDependency */,
-			);
-			name = "Pods-MYT";
-			productName = "Pods-MYT";
-			productReference = AE49E22BA912A612C0E069A3 /* libPods-MYT.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		D3CBFE6E7D42D0DF629C8E20 /* Pods-MYT-MYBlurIntroductionView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46E603E58EFF27C7C83E30C5 /* Build configuration list for PBXNativeTarget "Pods-MYT-MYBlurIntroductionView" */;
-			buildPhases = (
-				5B498FB7A3B5BBB80D946DE4 /* Sources */,
-				D5110358797A30EE42FFFB61 /* Frameworks */,
-				A76D725D442292FF4D59157B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-MYT-MYBlurIntroductionView";
-			productName = "Pods-MYT-MYBlurIntroductionView";
-			productReference = 8C6A8F76338AFBA68ED2A006 /* libPods-MYT-MYBlurIntroductionView.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
-		A00E98448C508268BDCFBF1B /* Project object */ = {
+		79470F6C01FFC803975E8389 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 3CC0F13B0272B2BB8BA24FEC /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = ED4CB9E92997429D9DE473E1 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = FAF037399BE2ED76A5DD4725;
-			productRefGroup = 8B50343550694AC911A02C75 /* Products */;
+			mainGroup = 0910DAFFE34ABC6610D7A0B9;
+			productRefGroup = 8DF8F5A6F3157B1BECB82492 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C5FCB6DBE8A3FCCAA6CE5D8 /* Pods-MYT */,
-				D3CBFE6E7D42D0DF629C8E20 /* Pods-MYT-MYBlurIntroductionView */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		5B498FB7A3B5BBB80D946DE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				765FDBEA516D7262C6B74675 /* MYBlurIntroductionView.m in Sources */,
-				DB8353C793D6B57F38606C9B /* MYIntroductionPanel.m in Sources */,
-				42027A8F6C58807A55CD1709 /* Pods-MYT-MYBlurIntroductionView-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DB8CBD25B2A689562252BFAF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				287451C191C9ABDD25373E9A /* Pods-MYT-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D26630F90210A4B1F779E85D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-MYT-MYBlurIntroductionView";
-			target = D3CBFE6E7D42D0DF629C8E20 /* Pods-MYT-MYBlurIntroductionView */;
-			targetProxy = 581FAEA2C6F05417ED6F87AD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		206B215D4A2C8B419FE920EE /* Release */ = {
+		3B5E742711367FC6DB985FC0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,7 +101,7 @@
 			};
 			name = Release;
 		};
-		22D2C428A3338A265C169ABB /* Debug */ = {
+		8C1382D98395BB4AFCB46F69 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -343,101 +140,19 @@
 			};
 			name = Debug;
 		};
-		57628C3887E5C41C30A8C991 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1591EFED8D91E838CA9FB02B /* Pods-MYT-MYBlurIntroductionView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MYT-MYBlurIntroductionView/Pods-MYT-MYBlurIntroductionView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		DFD1D7749376FF859FD8C19F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0087A3D73EAAFB7EA5A8A645 /* Pods-MYT.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		E211F2F49DF66576EE62F2C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1591EFED8D91E838CA9FB02B /* Pods-MYT-MYBlurIntroductionView-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-MYT-MYBlurIntroductionView/Pods-MYT-MYBlurIntroductionView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		E7387DB516B8FA4003C865DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC4063A119D0DDC6FCC59862 /* Pods-MYT.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3CC0F13B0272B2BB8BA24FEC /* Build configuration list for PBXProject "Pods" */ = {
+		ED4CB9E92997429D9DE473E1 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				22D2C428A3338A265C169ABB /* Debug */,
-				206B215D4A2C8B419FE920EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		46E603E58EFF27C7C83E30C5 /* Build configuration list for PBXNativeTarget "Pods-MYT-MYBlurIntroductionView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E211F2F49DF66576EE62F2C9 /* Debug */,
-				57628C3887E5C41C30A8C991 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E95907FB2885D8E49E60DC93 /* Build configuration list for PBXNativeTarget "Pods-MYT" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E7387DB516B8FA4003C865DA /* Debug */,
-				DFD1D7749376FF859FD8C19F /* Release */,
+				8C1382D98395BB4AFCB46F69 /* Debug */,
+				3B5E742711367FC6DB985FC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A00E98448C508268BDCFBF1B /* Project object */;
+	rootObject = 79470F6C01FFC803975E8389 /* Project object */;
 }

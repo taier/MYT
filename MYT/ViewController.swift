@@ -74,6 +74,25 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
                 println("Some shit happened")
             }
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"WillEnterForeground", name:
+            UIApplicationWillEnterForegroundNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"WillResighnActive", name:
+            UIApplicationWillResignActiveNotification, object: nil)
+    }
+    
+    
+    // Notifications
+    
+    func WillEnterForeground(){
+         locationTracker.resumeLocationUpdate();
+    }
+    
+    func WillResighnActive() {
+        if(!isTracking) {
+            locationTracker.pauseLocationUpdate();
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -146,16 +165,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
         
         totalDistance += Int(meters)
         distanceLabel.text = convertMetersToKMString(totalDistance)
-        
-//        if(totalDistance == 0) {
-//            distanceLabel.text = String(format:"%.f meters",Double(meters))
-//            let a:Int? = distanceLabel.text?.toInt()
-//            let myNumber = NSNumberFormatter().numberFromString(distanceLabel.text!)
-//            totalDistance += Int(meters)
-//        } else if (totalDistance != 0) {
-//            totalDistance += Int(meters)
-//            distanceLabel.text = String(format:"%i meters",totalDistance)
-//        }
         
         // Save GPX
         addPointToCurrentGPXFrom(CGFloat(coordinate.latitude), longitude:CGFloat(coordinate.longitude))
@@ -370,8 +379,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate, MKM
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         if overlay is MKPolyline {
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.blueColor()
-            polylineRenderer.lineWidth = 5
+            polylineRenderer.strokeColor = UIColor(red: 0, green: 120/255, blue: 1, alpha: 0.7)
+            polylineRenderer.lineWidth = 8
             return polylineRenderer
         }
         
