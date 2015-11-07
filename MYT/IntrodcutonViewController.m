@@ -10,11 +10,10 @@
 #import "ViewScreenCollectionCell.h"
 
 
-@interface IntrodcutonViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface IntrodcutonViewController () < UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ViewScreenCollectionCellDeleagte,UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionViewMain;
-
-@property bool didPresent;
+@property (strong, nonatomic) IBOutlet UILabel *labelCount;
 
 @end
 
@@ -22,31 +21,32 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
 }
 
 - (void)viewDidLayoutSubviews {
     
     [super viewDidLayoutSubviews];
     
-//    if([self needToShowTutorial]) {
-//        return;
-//    }
-//    
-//    [self moveToNextScreen];
+    if(![self needToShowTutorial]) {
+        self.view.alpha = 0;
+        [self moveToNextScreen];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-     _didPresent = false;
-    
-//    if([self needToShowTutorial]) {
-        [self initIntroduction];
-//    } 
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,24 +64,21 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     ViewScreenCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[NSString stringWithFormat:@"cellView%li",indexPath.item + 1] forIndexPath:indexPath];
-    
+    cell.delegate = self;
     return  cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSIndexPath *centerCellIndexPath = [self.collectionViewMain indexPathForItemAtPoint: [self.view convertPoint:[self.view center] toView:self.collectionViewMain]];
+    
+    self.labelCount.text = [NSString stringWithFormat:@"Step: %i/4",(int)(centerCellIndexPath.item + 1)];
+    
 }
 
 #pragma mark Collection View Layout Delegate
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return self.collectionViewMain.frame.size;
-}
-
-
-- (void)initIntroduction {
-    
-//    // Register stuff
-//    for (int i = 1; i < 5 ; i++) {
-//        [self.collectionViewMain registerClass:[ViewScreenCollectionCell class] forCellWithReuseIdentifier:[NSString stringWithFormat:@"cellView%i",i]];
-//    }
-    
 }
 
 - (BOOL)needToShowTutorial {
@@ -93,17 +90,18 @@
 }
 
 - (void)moveToNextScreen {
-    
-    if(_didPresent)
-        return;
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *key = @"FINISH_TUTORIAL";
     [defaults setBool:true forKey:key];
     [defaults synchronize];
     
     [self performSegueWithIdentifier:@"MAIN_SCREEN_SEGUE" sender:NULL];
-    _didPresent = true;
+}
+
+#pragma mark Cell Delegate
+
+- (void)finishTutorial {
+    [self moveToNextScreen];
 }
 
 

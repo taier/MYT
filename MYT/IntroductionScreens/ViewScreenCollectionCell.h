@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ViewScreenCollectionCellDeleagte <NSObject>
+
+- (void)finishTutorial;
+
+@end
+
 @interface ViewScreenCollectionCell : UICollectionViewCell
+
+@property id<ViewScreenCollectionCellDeleagte> delegate;
 
 @end
