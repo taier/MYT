@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wAe-RE-nWi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wAe-RE-nWi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -45,7 +45,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-Nr-4s2">
-                                                    <rect key="frame" x="118" y="121" width="52" height="150"/>
+                                                    <rect key="frame" x="113" y="107" width="62" height="179"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="288" id="0i5-LN-kPk"/>
@@ -56,7 +56,7 @@ MYT
 you
 can
 ...</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
@@ -119,8 +119,10 @@ can
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3le-bV-ujc">
                                                     <rect key="frame" x="102" y="25" width="85" height="43"/>
                                                     <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="309" id="A47-mu-flj"/>
+                                                        <constraint firstAttribute="height" constant="43" id="Fuj-0V-Vha"/>
                                                         <constraint firstAttribute="width" constant="288" id="mvU-d8-Jhx"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
@@ -128,21 +130,33 @@ can
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="mvU-d8-Jhx"/>
                                                             <exclude reference="A47-mu-flj"/>
+                                                            <exclude reference="mvU-d8-Jhx"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-2" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-Gi-JxS">
-                                                    <rect key="frame" x="74" y="66" width="140" height="260"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-2" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-Gi-JxS">
+                                                    <rect key="frame" x="32" y="100" width="224" height="260"/>
                                                     <animations/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="288" id="5e8-Ho-ef5"/>
                                                         <constraint firstAttribute="height" constant="420" id="AZb-MT-ebh"/>
+                                                        <constraint firstAttribute="height" constant="260" id="MeO-2g-B3q"/>
+                                                        <constraint firstAttribute="height" constant="303" id="RgN-sQ-e8d"/>
+                                                        <constraint firstAttribute="height" constant="260" id="Whm-NI-PhP"/>
+                                                        <constraint firstAttribute="width" constant="256" id="cuf-YH-KID"/>
+                                                        <constraint firstAttribute="width" constant="256" id="uI8-Ms-L1P"/>
                                                         <constraint firstAttribute="width" constant="320" id="upC-d5-Vdn"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
+                                                            <exclude reference="5e8-Ho-ef5"/>
                                                             <exclude reference="AZb-MT-ebh"/>
+                                                            <exclude reference="MeO-2g-B3q"/>
+                                                            <exclude reference="RgN-sQ-e8d"/>
+                                                            <exclude reference="Whm-NI-PhP"/>
+                                                            <exclude reference="cuf-YH-KID"/>
+                                                            <exclude reference="uI8-Ms-L1P"/>
                                                             <exclude reference="upC-d5-Vdn"/>
                                                         </mask>
                                                     </variation>
@@ -156,22 +170,38 @@ can
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="nmc-Gi-JxS" secondAttribute="trailing" id="7ad-FB-BBn"/>
                                             <constraint firstAttribute="bottom" secondItem="nmc-Gi-JxS" secondAttribute="bottom" id="CI3-x7-lZu"/>
-                                            <constraint firstAttribute="centerY" secondItem="nmc-Gi-JxS" secondAttribute="centerY" id="RZ7-Dn-87K"/>
+                                            <constraint firstItem="nmc-Gi-JxS" firstAttribute="top" secondItem="3le-bV-ujc" secondAttribute="bottom" constant="32" id="H6c-45-jKy"/>
+                                            <constraint firstItem="nmc-Gi-JxS" firstAttribute="top" secondItem="3le-bV-ujc" secondAttribute="bottom" constant="16" id="IIc-no-PqW"/>
+                                            <constraint firstAttribute="bottom" secondItem="nmc-Gi-JxS" secondAttribute="bottom" constant="32" id="IVs-hI-MSr"/>
+                                            <constraint firstItem="nmc-Gi-JxS" firstAttribute="top" secondItem="3le-bV-ujc" secondAttribute="bottom" constant="16" id="Qrq-Un-pIV"/>
+                                            <constraint firstAttribute="centerY" secondItem="nmc-Gi-JxS" secondAttribute="centerY" constant="-31.5" id="RZ7-Dn-87K"/>
+                                            <constraint firstAttribute="trailing" secondItem="nmc-Gi-JxS" secondAttribute="trailing" constant="32" id="UHm-AL-cs6"/>
                                             <constraint firstItem="nmc-Gi-JxS" firstAttribute="leading" secondItem="ysb-ex-KVU" secondAttribute="leading" id="WMx-o0-A8U"/>
                                             <constraint firstItem="3le-bV-ujc" firstAttribute="top" secondItem="ysb-ex-KVU" secondAttribute="top" id="gNU-Ul-jLF"/>
                                             <constraint firstItem="nmc-Gi-JxS" firstAttribute="top" secondItem="ysb-ex-KVU" secondAttribute="top" id="kSp-6a-lXk"/>
                                             <constraint firstItem="3le-bV-ujc" firstAttribute="top" secondItem="ysb-ex-KVU" secondAttribute="top" constant="25" id="mVv-tN-1MB"/>
+                                            <constraint firstItem="nmc-Gi-JxS" firstAttribute="top" secondItem="3le-bV-ujc" secondAttribute="bottom" constant="16" id="mh1-IF-Adg"/>
                                             <constraint firstAttribute="centerX" secondItem="nmc-Gi-JxS" secondAttribute="centerX" id="q4A-zu-9dF"/>
+                                            <constraint firstAttribute="centerX" secondItem="nmc-Gi-JxS" secondAttribute="centerX" id="svI-Yj-9Fg"/>
+                                            <constraint firstItem="nmc-Gi-JxS" firstAttribute="leading" secondItem="ysb-ex-KVU" secondAttribute="leading" constant="32" id="vMg-jB-lZv"/>
+                                            <constraint firstAttribute="bottom" secondItem="nmc-Gi-JxS" secondAttribute="bottom" constant="16" id="wze-oq-FVK"/>
                                             <constraint firstAttribute="centerX" secondItem="3le-bV-ujc" secondAttribute="centerX" id="yMF-Qt-DHE"/>
                                         </constraints>
                                         <size key="customSize" width="288" height="392"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="gNU-Ul-jLF"/>
                                                 <exclude reference="7ad-FB-BBn"/>
                                                 <exclude reference="CI3-x7-lZu"/>
+                                                <exclude reference="IIc-no-PqW"/>
+                                                <exclude reference="Qrq-Un-pIV"/>
+                                                <exclude reference="RZ7-Dn-87K"/>
                                                 <exclude reference="WMx-o0-A8U"/>
                                                 <exclude reference="kSp-6a-lXk"/>
+                                                <exclude reference="mh1-IF-Adg"/>
+                                                <exclude reference="q4A-zu-9dF"/>
+                                                <exclude reference="svI-Yj-9Fg"/>
+                                                <exclude reference="wze-oq-FVK"/>
+                                                <exclude reference="gNU-Ul-jLF"/>
                                             </mask>
                                         </variation>
                                     </collectionViewCell>
@@ -224,7 +254,7 @@ can
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="309"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-Bv-mc3">
+                                                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-Bv-mc3">
                                                     <rect key="frame" x="82" y="260" width="124" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
@@ -235,7 +265,7 @@ can
                                                         <action selector="onBeginUisngAppButtonPress:" destination="BNQ-Mx-9mM" eventType="touchUpInside" id="quq-Vi-DnK"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to settings and enable location for MYT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm6-jO-HX7">
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to settings and enable location for MYT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jm6-jO-HX7">
                                                     <rect key="frame" x="16" y="203" width="256" height="41"/>
                                                     <animations/>
                                                     <constraints>
@@ -373,7 +403,7 @@ can
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c67-j1-Eaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90" y="428"/>
+            <point key="canvasLocation" x="-343" y="458"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
