@@ -18,9 +18,10 @@
 		976DBA051B3843BC00811937 /* GPXTrackSegment+MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */; };
 		976DBA061B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */; };
 		976DBA081B3844A700811937 /* HistoryMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DBA071B3844A700811937 /* HistoryMapViewController.swift */; };
-		97B495081BDB821A006D900B /* Toronto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97B495071BDB821A006D900B /* Toronto.jpg */; };
 		97C9E5BD1B380C5900D5AF0A /* DataShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */; };
 		97ECE57C1BDB7E23006627FF /* IntrodcutonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97ECE57B1BDB7E23006627FF /* IntrodcutonViewController.m */; };
+		97ED6CC21BF73BC100190B13 /* myt_tut1.png in Resources */ = {isa = PBXBuildFile; fileRef = 97ED6CC11BF73BC100190B13 /* myt_tut1.png */; };
+		97ED6CC41BF73DB600190B13 /* myt_tut2.png in Resources */ = {isa = PBXBuildFile; fileRef = 97ED6CC31BF73DB600190B13 /* myt_tut2.png */; };
 		B7034BF51B93382D003711D1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */; };
 		B71F53A01B1E4B10006223A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F539F1B1E4B10006223A9 /* AppDelegate.swift */; };
 		B71F53A21B1E4B10006223A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F53A11B1E4B10006223A9 /* ViewController.swift */; };
@@ -79,10 +80,11 @@
 		976DB9FE1B3843BC00811937 /* GPXTrackSegment+MapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXTrackSegment+MapKit.swift"; path = "Libs/GPX View/GPXTrackSegment+MapKit.swift"; sourceTree = "<group>"; };
 		976DB9FF1B3843BC00811937 /* GPXWaypoint+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GPXWaypoint+MKAnnotation.swift"; path = "Libs/GPX View/GPXWaypoint+MKAnnotation.swift"; sourceTree = "<group>"; };
 		976DBA071B3844A700811937 /* HistoryMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryMapViewController.swift; sourceTree = "<group>"; };
-		97B495071BDB821A006D900B /* Toronto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Toronto.jpg; sourceTree = "<group>"; };
 		97C9E5BC1B380C5900D5AF0A /* DataShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataShowController.swift; sourceTree = "<group>"; };
 		97ECE57A1BDB7E23006627FF /* IntrodcutonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrodcutonViewController.h; sourceTree = "<group>"; };
 		97ECE57B1BDB7E23006627FF /* IntrodcutonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrodcutonViewController.m; sourceTree = "<group>"; };
+		97ED6CC11BF73BC100190B13 /* myt_tut1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myt_tut1.png; sourceTree = "<group>"; };
+		97ED6CC31BF73DB600190B13 /* myt_tut2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myt_tut2.png; sourceTree = "<group>"; };
 		B7034BF41B93382D003711D1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		B71F539A1B1E4B10006223A9 /* MYT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F539E1B1E4B10006223A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,7 +191,8 @@
 		97B495061BDB821A006D900B /* Introduction Images */ = {
 			isa = PBXGroup;
 			children = (
-				97B495071BDB821A006D900B /* Toronto.jpg */,
+				97ED6CC31BF73DB600190B13 /* myt_tut2.png */,
+				97ED6CC11BF73BC100190B13 /* myt_tut1.png */,
 			);
 			path = "Introduction Images";
 			sourceTree = "<group>";
@@ -431,10 +434,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97ED6CC41BF73DB600190B13 /* myt_tut2.png in Resources */,
 				B71F53A51B1E4B10006223A9 /* Main.storyboard in Resources */,
 				B71F53AA1B1E4B10006223A9 /* LaunchScreen.xib in Resources */,
+				97ED6CC21BF73BC100190B13 /* myt_tut1.png in Resources */,
 				B71F53A71B1E4B10006223A9 /* Images.xcassets in Resources */,
-				97B495081BDB821A006D900B /* Toronto.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

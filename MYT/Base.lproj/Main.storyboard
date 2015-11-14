@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wAe-RE-nWi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wAe-RE-nWi">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -38,13 +39,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView1" id="Hch-R7-kaT" userLabel="CellView1" customClass="ViewScreenCollectionCell">
-                                        <rect key="frame" x="0.0" y="41" width="320" height="339"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="392"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="392"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-Nr-4s2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiP-Nr-4s2">
                                                     <rect key="frame" x="113" y="107" width="62" height="179"/>
                                                     <animations/>
                                                     <constraints>
@@ -66,7 +67,7 @@ can
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkN-aD-Ask">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkN-aD-Ask">
                                                     <rect key="frame" x="104" y="25" width="80" height="43"/>
                                                     <animations/>
                                                     <constraints>
@@ -110,13 +111,13 @@ can
                                         </variation>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView2" id="ysb-ex-KVU" userLabel="CellView2" customClass="ViewScreenCollectionCell">
-                                        <rect key="frame" x="320" y="0.0" width="320" height="420"/>
+                                        <rect key="frame" x="288" y="0.0" width="288" height="392"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="392"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3le-bV-ujc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Track" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3le-bV-ujc">
                                                     <rect key="frame" x="102" y="25" width="85" height="43"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -135,7 +136,7 @@ can
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial-2" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-Gi-JxS">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myt_tut1.png" translatesAutoresizingMaskIntoConstraints="NO" id="nmc-Gi-JxS">
                                                     <rect key="frame" x="32" y="100" width="224" height="260"/>
                                                     <animations/>
                                                     <constraints>
@@ -206,7 +207,7 @@ can
                                         </variation>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView3" id="3u6-M6-stY" customClass="ViewScreenCollectionCell">
-                                        <rect key="frame" x="640" y="0.0" width="320" height="420"/>
+                                        <rect key="frame" x="576" y="0.0" width="288" height="392"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="392"/>
@@ -218,6 +219,7 @@ can
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="288" id="T0U-fr-GVj"/>
                                                         <constraint firstAttribute="height" constant="309" id="Wtr-PK-SwH"/>
+                                                        <constraint firstAttribute="height" constant="43" id="bAh-50-ZDd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                     <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -229,8 +231,8 @@ can
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial-3" translatesAutoresizingMaskIntoConstraints="NO" id="YMI-lt-47g">
-                                                    <rect key="frame" x="74" y="66" width="140" height="260"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myt_tut2.png" translatesAutoresizingMaskIntoConstraints="NO" id="YMI-lt-47g">
+                                                    <rect key="frame" x="32" y="100" width="224" height="260"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
@@ -240,21 +242,31 @@ can
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="YMI-lt-47g" firstAttribute="leading" secondItem="3u6-M6-stY" secondAttribute="leading" constant="32" id="IuV-zr-dvv"/>
                                             <constraint firstItem="p5u-3T-IkX" firstAttribute="top" secondItem="3u6-M6-stY" secondAttribute="top" constant="25" id="Niz-dg-96D"/>
                                             <constraint firstAttribute="centerY" secondItem="YMI-lt-47g" secondAttribute="centerY" id="QvI-Y8-ZFu"/>
+                                            <constraint firstItem="YMI-lt-47g" firstAttribute="top" secondItem="p5u-3T-IkX" secondAttribute="bottom" constant="32" id="UsP-pw-cMv"/>
                                             <constraint firstAttribute="centerX" secondItem="YMI-lt-47g" secondAttribute="centerX" id="VrN-Qy-2V9"/>
+                                            <constraint firstAttribute="trailing" secondItem="YMI-lt-47g" secondAttribute="trailing" constant="32" id="ZIz-oO-N2m"/>
                                             <constraint firstAttribute="centerX" secondItem="p5u-3T-IkX" secondAttribute="centerX" id="b7p-LE-xhY"/>
+                                            <constraint firstAttribute="bottom" secondItem="YMI-lt-47g" secondAttribute="bottom" constant="32" id="dY9-B6-DPv"/>
                                         </constraints>
                                         <size key="customSize" width="288" height="392"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="QvI-Y8-ZFu"/>
+                                                <exclude reference="VrN-Qy-2V9"/>
+                                            </mask>
+                                        </variation>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellView4" id="BNQ-Mx-9mM" customClass="ViewScreenCollectionCell">
-                                        <rect key="frame" x="960" y="0.0" width="320" height="420"/>
+                                        <rect key="frame" x="864" y="42" width="288" height="309"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="309"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-Bv-mc3">
+                                                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-Bv-mc3">
                                                     <rect key="frame" x="82" y="260" width="124" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
@@ -282,7 +294,7 @@ can
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmf-7O-OX2">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fmf-7O-OX2">
                                                     <rect key="frame" x="67" y="138" width="154" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
@@ -339,7 +351,7 @@ can
                                     <outlet property="delegate" destination="wAe-RE-nWi" id="Cdb-jR-0rU"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wk-PQ-kXQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 of 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wk-PQ-kXQ">
                                 <rect key="frame" x="139" y="444" width="42" height="20"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -537,7 +549,7 @@ can
                                                         <color key="textColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-Ug-4ug">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-Ug-4ug">
                                                         <rect key="frame" x="139" y="24" width="53" height="16"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -637,7 +649,7 @@ can
                                     <constraint firstAttribute="height" constant="20" id="lxZ-Kt-xDK"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-0x-qBr">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-0x-qBr">
                                 <rect key="frame" x="8" y="28" width="139" height="29"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
@@ -733,7 +745,7 @@ can
                                                         <constraint firstAttribute="height" constant="44" id="uST-bY-3ay"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YYYY-MM-DD HH:mm " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se5-rh-rX2">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YYYY-MM-DD HH:mm " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se5-rh-rX2">
                                                     <rect key="frame" x="48" y="13" width="151" height="18"/>
                                                     <animations/>
                                                     <constraints>
@@ -786,7 +798,7 @@ can
                                     <outlet property="delegate" destination="0f0-wx-u2j" id="keh-tY-WNb"/>
                                 </connections>
                             </tableView>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kli-y7-vas">
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kli-y7-vas">
                                 <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <animations/>
                                 <constraints>
@@ -913,7 +925,7 @@ can
                                                     </constraint>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-09-21 12:28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ak-sp-hRm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2015-09-21 12:28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ak-sp-hRm">
                                                 <rect key="frame" x="91" y="8" width="123" height="18"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -927,7 +939,7 @@ can
                                                 <color key="textColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:23:14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRR-Uj-oNA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:23:14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRR-Uj-oNA">
                                                 <rect key="frame" x="236" y="36" width="60" height="18"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1042,8 +1054,8 @@ can
     </scenes>
     <resources>
         <image name="Arrow" width="44" height="44"/>
-        <image name="Tutorial-3" width="140" height="260"/>
         <image name="history-icon" width="44" height="44"/>
-        <image name="tutorial-2" width="140" height="260"/>
+        <image name="myt_tut1.png" width="800" height="1600"/>
+        <image name="myt_tut2.png" width="800" height="1600"/>
     </resources>
 </document>
